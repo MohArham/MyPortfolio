@@ -317,19 +317,13 @@ input:focus {
 /*******************/
 /* media queries */
 /*****************/
-
-
-
-
 @media (min-width: 600px) {
     .wrapper {
         display: flex;
     }
-    
     .heading {
         font-size: 3.5rem;
     }
-    
     h2{
         font-size: 1.75rem;
     }
@@ -348,8 +342,8 @@ input:focus {
         flex-direction: column;
         justify-content: center;
     }
-
 }
+
 
 
 

@@ -50,22 +50,21 @@
             <p>I love talking about cubing, 
                 cycling and soo much more! You can ask me anything you want! I hope I see your email!</p>
             
-                <form class="info-colector" action="" method="POST">
-
-                    <input type="text" required placeholder="Name"> 
-                    
-                    <input type="email" required placeholder="Email">
+                <form class="info-colector" action="https://formsubmit.co/mmoh.arham2015@gmail.com" method="POST">
+                    <input type="text" name="name" required placeholder="Name"> 
+        
+        
+                    <input type="email" name="email" required placeholder="Email">
 
                     <label for="message">Message</label>
-                    <textarea id="message" required></textarea>
+                    <textarea id="message" name="message" required></textarea>
 
                     <div class="agreement">
-                        <input type="checkbox" required class="agreement-checkbox"> 
+                        <input type="checkbox" name="agreement" required class="agreement-checkbox"> 
                         <p class="agreement-p">I agree to Terms and Services</p>
                     </div>
 
                     <button class="btn btn-primary" type="submit">Send</button>
-
                 </form>
 
              <p class="safety-text">Please do not share personal or private information.
@@ -75,6 +74,9 @@
 
         </div>
 
-        <script src="project-page.js"> </script>
+        <script src="project-page.js"> 
+            
+            
+        </script>
     </body>
 </html>
