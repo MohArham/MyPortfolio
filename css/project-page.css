@@ -177,6 +177,25 @@ nav {
     box-shadow: 5px 5px 20px;
 }
 
+.calc-link {
+        background-color: #0ea5e9;
+        padding: 10px;
+        border-radius: 10px;
+        color: lightcyan;
+        font-weight: bold;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    .calc-link:hover {
+        text-decoration: underline;
+        
+    }
+    svg {
+        width: 30px;
+        transform: translate(0px, 9px);
+        color:rgb(21, 255, 251);
+    }
+
 /*///////////////////////
     PROJECT percentage
 //////////////////////*/
@@ -253,17 +272,5 @@ nav {
         height: 400px;
         object-fit:cover;
     }
-    .calc-link {
-        background-color: #0ea5e9;
-        padding: 10px;
-        border-radius: 10px;
-        color: lightcyan;
-        font-weight: bold;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-    .calc-link:hover {
-        text-decoration: underline;
-        
-    }
+    
 }

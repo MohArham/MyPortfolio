@@ -230,6 +230,10 @@ h2 + p {
 /**********/
 /* Forms */
 /*********/
+
+form {
+    display: grid;
+}
 .info-colector {
     width: 80%;
     max-width: 300px;
@@ -254,6 +258,17 @@ input {
     border: solid black 2px;
     transform: scale(1);
     transition: transform 250ms;
+}
+
+textarea {
+    margin-bottom: 1em;
+    resize: none;
+    height: 100px;
+    padding: .4em;
+    font-family: inherit;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    margin-top: 0.2em;
 }
 
 .agreement {
@@ -293,6 +308,7 @@ input:focus {
     transition: transform 250ms;
 
 }
+
 
 
 
