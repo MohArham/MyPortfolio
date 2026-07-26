@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank You</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            margin: 0 auto;
+            font-family: cascadia code;
+            text-align: center;
+            width: 90%;
+            margin: 0 auto;
+            max-width: 2000px;
+            background: linear-gradient(to bottom right, red, orange, yellow, rgb(91, 249, 91), blue, purple);
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-size: 40px;
+        }
+        .tick {
+            transform: translate(0px, 40px);
+            background-color: rgb(187, 255, 128);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 25px rgb(101, 216, 0), -5px -5px 25px rgb(175, 255, 104);
+        }
+        #message {
+            margin-bottom: 30px;
+        }
+        .button {
+            text-decoration: none;
+            background: rgb(52, 150, 255);
+            color: lightcyan;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .buttonDIV {
+            transition: transform 350ms;
+        }
+
+        .buttonDIV:hover {
+            transform: scale(1.15);
+            transition: transform 500ms;
+        }
+        
+        .back {
+            transform: translate(-2px, 14px);
+            transition: transform 500ms;
+        }
+        .back:hover {
+            transform: translate(-14.5px, 14px);
+            transition: transform 500ms;
+        }
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 100px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding-top: 0px;
+        }
+    </style>
+    <body>
+        <div class="thank-you-card">
+        <!-- Custom green SVG tick -->
+        <svg class="tick" width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+         <path d="M5 12L10 17L20 7" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <h1>Message Sent!🎉</h1>
+        <p> Thanks for reaching out to me! 🎉</p>
+        <p id="message">Your message has been successfully sent.  
+            I’ll check it out and get back to you!</p>
+
+        <div class="buttonDIV">
+        <a href="homepage.html" class="button"><svg class="back" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#E0FFFF"><path d="m287-446.67 240 240L480-160 160-480l320-320 47 46.67-240 240h513v66.66H287Z"/></svg>Back to Homepage</a>
+        </div>
+
+        </div>
+
+    </body>
+</html>
