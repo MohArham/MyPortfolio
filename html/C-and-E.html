@@ -170,12 +170,18 @@
             }
 
             .cards {
-                display: flex;
+                display: grid;
+                grid-template: repeat(3, 1fr), 1fr 1fr 1fr;
                 gap: 1em;
+                grid-template-areas: 
+                    "item1 item2 item3"
+                "heading   heading   heading"
+                    "item4 item5 item6";
+
             }
 
             .items {
-                background: linear-gradient(rgb(2, 85, 113), rgb(3, 3, 114), black);
+                background: linear-gradient(rgb(1, 73, 97), rgb(3, 3, 114), black);
                 border-radius: 10px;
                 padding: 10px;
             }
@@ -186,7 +192,37 @@
 
             svg {
                 width: 80px;
+                background-color: purple;
+                border-radius: 50%;
+                padding: 10px;
             }
+
+            .item-1 {
+                grid-area: item1;
+            }
+            .item-2 {
+                grid-area: item2;
+            }
+            .item-3 {
+                grid-area: item3;
+            }
+            .item-4 {
+                grid-area: item4;
+            }
+            .item-5 {
+                grid-area: item5;
+            }
+            .item-6 {
+                grid-area: item6;
+            }
+            .effects-heading {
+                grid-area: heading;
+                text-transform: uppercase;
+                color: rgb(249, 145, 249);
+            }
+
+
+
         </style>
     </head>
     <body>
@@ -199,7 +235,7 @@
          <nav class="nav">
             <button aria-label="Close navigation" class="close-button">&times;</button>
                <ul>
-                  <li><a href="#">Home</a></li>
+                  <li><a href="CyberBullying.html">Home</a></li>
                   <li><a href="C-and-E.html" class="current-page">Causes & Effects</a></li>
                   <li><a href="#">Prevention</a></li>
                   <li><a href="#">Subjects & perspectives</a></li>
@@ -222,18 +258,38 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M332.9 32.2C327.4 31.5 321.9 33.6 318.4 37.9C314.9 42.2 313.8 48 315.6 53.2C318.4 61.4 319.9 70.1 319.9 79.3C319.9 101 311.4 116.5 298 126.9C284.1 137.7 263.9 143.9 239.9 143.9L215.9 143.9C167.3 143.9 127.9 183.3 127.9 231.9C127.9 246.7 131.6 260.7 138.1 273C96.1 279.6 63.9 316 63.9 359.9C63.9 406.5 100.1 444.6 145.8 447.7C148.9 435.3 155.7 423.9 165.4 415.2L306.7 289C318.9 278.1 334.7 272 351.1 272C395.7 272 427.6 315 414.8 357.7L402.1 400.1C430.9 401.3 454.8 421.2 461.9 448L488.1 448C536.7 448 576.1 408.6 576.1 360C576.1 316.1 544 279.7 501.9 273.1C508.4 260.8 512.1 246.9 512.1 232C512.1 183.4 472.7 144 424.1 144L414.7 144C415.6 138.6 416.1 133.1 416.1 127.4C416.1 78.7 380 38.5 333 32.2zM208.6 480L270.4 480L239.2 584.1C235.6 596 244.5 608 257 608C261.6 608 266 606.3 269.4 603.3L410.5 476.9C414 473.8 416 469.3 416 464.5C416 455.3 408.6 447.9 399.4 447.9L337.6 447.9L368.8 343.8C372.4 331.9 363.5 319.9 351 319.9C346.4 319.9 342 321.6 338.6 324.6L197.5 451.1C194 454.2 192 458.7 192 463.5C192 472.7 199.4 480.1 208.6 480.1z"/></svg>
                     <P>People hide behind screens and feel they won't get caught</P>
                 </div>
-                <div class="items item-1">
+                <div class="items item-2">
                     <h3>Peer Presure</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M96 192C96 130.1 146.1 80 208 80C269.9 80 320 130.1 320 192C320 253.9 269.9 304 208 304C146.1 304 96 253.9 96 192zM32 528C32 430.8 110.8 352 208 352C305.2 352 384 430.8 384 528L384 534C384 557.2 365.2 576 342 576L74 576C50.8 576 32 557.2 32 534L32 528zM464 128C517 128 560 171 560 224C560 277 517 320 464 320C411 320 368 277 368 224C368 171 411 128 464 128zM464 368C543.5 368 608 432.5 608 512L608 534.4C608 557.4 589.4 576 566.4 576L421.6 576C428.2 563.5 432 549.2 432 534L432 528C432 476.5 414.6 429.1 385.5 391.3C408.1 376.6 435.1 368 464 368z"/></svg>
                     <P>Wanting to fit in or impress others can lead to hurtful behavior.</P>
                 </div>
-                <div class="items item-1">
+                <div class="items item-3">
                     <h3>Personal Issues</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M341.8 72.6C329.5 61.2 310.5 61.2 298.3 72.6L74.3 280.6C64.7 289.6 61.5 303.5 66.3 315.7C71.1 327.9 82.8 336 96 336L112 336L112 512C112 547.3 140.7 576 176 576L464 576C499.3 576 528 547.3 528 512L528 336L544 336C557.2 336 569 327.9 573.8 315.7C578.6 303.5 575.4 289.5 565.8 280.6L341.8 72.6zM304 384L336 384C362.5 384 384 405.5 384 432L384 528L256 528L256 432C256 405.5 277.5 384 304 384z"/></svg>
                     <P>Sress, anger, family problems or low self-esteem can trigger it..</P>
                 </div>
+
+                <h2 class="effects-heading">The effects on the victims</h2>
+
+                <div class="items item-4">
+                    <h3>Mental Effects</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M184 120C184 89.1 209.1 64 240 64L264 64C281.7 64 296 78.3 296 96L296 544C296 561.7 281.7 576 264 576L232 576C202.2 576 177.1 555.6 170 528C169.3 528 168.7 528 168 528C123.8 528 88 492.2 88 448C88 430 94 413.4 104 400C84.6 385.4 72 362.2 72 336C72 305.1 89.6 278.2 115.2 264.9C108.1 252.9 104 238.9 104 224C104 179.8 139.8 144 184 144L184 120zM456 120L456 144C500.2 144 536 179.8 536 224C536 239 531.9 253 524.8 264.9C550.5 278.2 568 305 568 336C568 362.2 555.4 385.4 536 400C546 413.4 552 430 552 448C552 492.2 516.2 528 472 528C471.3 528 470.7 528 470 528C462.9 555.6 437.8 576 408 576L376 576C358.3 576 344 561.7 344 544L344 96C344 78.3 358.3 64 376 64L400 64C430.9 64 456 89.1 456 120z"/></svg>
+                    <p>Stress, anxiety, low-esteem, depresion and the feeling of being worthless</p>
+                </div>
+                <div class="items item-5">
+                    <h3>Emotional Effects</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M305 151.1L320 171.8L335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1z"/></svg>
+                    <P>Sadness, anger, loneliness, embarrassment and the feeling of insecuirity.</P>
+                </div>
+                <div class="items item-6">
+                    <h3>Physical Effects</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"/></svg>
+                    <p>Headaches, stomach aches, too much tired, sleeping problems and other health issues.</p>
+                </div>
             </div>
+
         </div>
+
 
 
         <script>
