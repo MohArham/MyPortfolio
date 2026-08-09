@@ -9,3 +9,10 @@ function switchScreen(nextSectionId) {
     // Update the tracker to the new section
     currentSectionId = nextSectionId;
 }   
+
+let time = 32;
+
+setInterval(() => {
+  time = time - 1;
+  document.getElementById('timeVal').textContent = time;
+}, 1000);
