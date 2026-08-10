@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prevention</title>
+        <style>
+
+            header {
+            background: #054b7a;
+            color: #07f1dd;
+            padding: 15px 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-family: "Cascadia Code", monospace;
+            font-weight: bold;
+            transition: color 250ms, transform 250ms;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #6c98f6;
+    
+        }
+
+        .current-page {
+            border-bottom: 2px solid lightblue;
+            padding-bottom: 3px;
+        }
+
+        .open-button,
+        .close-button {
+            display: none;
+        }
+
+
+
+            @media (min-width: 706px) { 
+                .open-button, .close-button {
+                    display: none;
+                }
+                header {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                }
+                header h1 {
+                    font-size: 40px;
+                }
+
+                nav {
+                    position: static;
+                    width: auto;
+                    background: none;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-size: initial;
+                    transform: none;
+                }
+
+                nav ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                nav li {
+                    margin: 0 12px 0 0;
+                }
+            }
+
+             @media (max-width: 705px) {
+
+            header {
+                padding: 15px 20px;
+                display: flex;
+            }
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            .open-button {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 28px;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            .close-button {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 20px;
+                background: none;
+                border: none;
+                color: lightblue;
+                font-size: 55px;
+                cursor: pointer;
+            }
+
+            nav {
+                position: fixed;
+                z-index: 10;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 100%;
+                width: 100%;
+                background: #002437;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(0);
+                transition: transform 250ms;
+            }
+
+            nav.navigation-open {
+                transform: translateX(-100%);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            nav a {
+                font-size: 25px;
+            }
+        </style>
+    </head>
+    <body>
+
+        
+        <script>
+        const closeButton = document.querySelector('.close-button');
+        const openButton = document.querySelector('.open-button');
+        const nav = document.querySelector('.nav');
+
+        closeButton.addEventListener('click', () => {
+        nav.classList.remove('navigation-open');
+        });
+
+        openButton.addEventListener("click", () => {
+            nav.classList.add('navigation-open');
+        }); 
+    </script>
+    </body>
+</html>

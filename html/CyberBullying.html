@@ -1,410 +1,671 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>Cyberbullying Awareness</title>
+
     <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: cascadia code;
-        background: rgb(2, 2, 113);
-        color: white;
-    }
-
-    img {
-        display: block;
-        width: 80px;
-        max-width: 100%;
-    }
-
-    .wrapper {
-        width: 90%;
-        margin: 0 auto;
-        max-width: 2000px;
-    }
-
-    header {
-        text-align: center;
-        color: #07f1dd;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav li {
-        margin: 10px 0;
-    }
-
-    header h1 {
-        text-align: center;
-        padding-left: 5px;
-        font-family: cascadia code;
-    }
-    nav a {
-        text-decoration: none;
-        color: inherit;
-        transform: scale(1);
-        transition: all 250ms;
-        padding: .25em;
-        font-family: Cascadia Code;
-    }
-
-    nav a:hover {
-        color: rgb(108, 152, 246);
-        transform: scale(1.1);
-    }
-
-    .current-page {
-        border-bottom: 2px solid lightblue;
-        padding-bottom: 1px;
-    }
-
-    .current-page:hover {
-        color: inherit;
-    }
-
-    nav li {
-        margin-right: 12px;
-        font-family: Cascadia Code;
-        margin-bottom: 60px;
-    }
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-weight: bold;
-    }
-
-    header {
-        padding: 10px 20px;
-        background-color: #054b7a;
-        margin-bottom: 0;
-    }
-
-    .close-button {
-        margin-left: auto ;
-        position: absolute;
-        left: 20px;
-        top: 0px;
-        font-size: 100px;
-        background: 0;
-        border: 0;
-        color: lightblue;
-        cursor: pointer;
-    }
-    .navigation-open {
-        transform: translateX(-100%);
-    }
-
-
-    nav {
-        position: fixed;
-        z-index: 10;
-        width: 100%;
-        top: 0;
-        right: 0;
-        left:100%;
-        bottom: 0;
-        background:#002437;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        transform: translateX(0);
-        transition: transform 250ms;
-    }
-
-    .open-button {
-        background: none;
-        border: none;
-        font-weight: 700;
-        font-size: 20px;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-    }
-
-    @media (min-width: 706px) { 
-        .open-button, .close-button {
-            display: none;
+        * {
+            box-sizing: border-box;
         }
+
+        body {
+            margin: 0;
+            font-family: "Cascadia Code", monospace;
+            background: rgb(2, 2, 86);
+            color: white;
+        }
+
+        /* =========================
+           HEADER / NAVIGATION
+        ========================== */
+
         header {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-        header h1 {
-            font-size: 40px;
+            background: #054b7a;
+            color: #07f1dd;
+            padding: 15px 5%;
+            text-align: center;
         }
 
-        nav {
-            position: static;
-            width: auto;
-            background: none;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            font-size: initial;
-            transform: none;
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            white-space: nowrap;
         }
 
         nav ul {
+            list-style: none;
             display: flex;
-            flex-direction: row;
             align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            margin-top: 20px;
         }
 
-        nav li {
-            margin: 0 12px 0 0;
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-family: "Cascadia Code", monospace;
+            font-weight: bold;
+            transition: color 250ms, transform 250ms;
+            display: inline-block;
         }
-    }
 
-    /*================
-            intro styles
-        ==================*/
+        nav a:hover {
+            color: #6c98f6;
+    
+        }
+
+        .current-page {
+            border-bottom: 2px solid lightblue;
+            padding-bottom: 3px;
+        }
+
+        .open-button,
+        .close-button {
+            display: none;
+        }
+
+
+        /* =========================
+           HERO / INTRO
+        ========================== */
 
         .intro {
-            background-image: url(../images/Hacker.png);
+            min-height: 500px;
+            padding: 70px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2, 2, 86, 0.95) 0%,
+                    rgba(2, 2, 86, 0.75) 45%,
+                    rgba(2, 2, 86, 0.25) 100%
+                ),
+                url("../images/Hacker.png");
+
             background-size: cover;
-            background-position: 00px;
-
-            width: 100%;
-            box-sizing: border-box;
-
-            color: rgb(242, 248, 248);
-
-            padding: 40px;
+            background-position: center;
         }
 
-        .intro h1,
-        .intro p {
-            width: 45%;
-            margin-left: 0;
-        }
-        .intro p {
-            width: 350px;
-            max-width: 100%;
+        .intro-content {
+            width: 50%;
+            max-width: 650px;
         }
 
         .intro h1 {
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0 0 15px;
+            font-size: clamp(40px, 5vw, 70px);
+            color: white;
+            line-height: 1.1;
         }
 
         .starter-p {
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-transform:uppercase;
-            color: rgb(69, 188, 236);
-            font-size: 1.125rem;
+            margin: 0 0 20px;
+            color: #45bcec;
+            font-size: 1.2rem;
             font-weight: bold;
-        }
-
-        .intro > p {
+            text-transform: uppercase;
             line-height: 1.5;
-            margin-top: 0;
-            margin-bottom: 20px;
         }
-        .intro a {
-            text-decoration: none;
-            color: lightblue;
-            padding: 10px;
-            background-color: rgb(66, 66, 255);
-            font-weight: bold;
-            border-radius: 4px;
-            transition: all 350ms;
-        }
-        .intro a:hover {
-            color:  rgb(66, 66, 255);
-            background: lightblue;
-            transition: all 350ms;
-        }
-        .link-transform {transition: transform 250ms;}
 
-        .link-transform:hover {
-            transform: scale(1.005);
+        .intro-description {
+            margin: 0 0 30px;
+            line-height: 1.7;
+            font-size: 1rem;
+            max-width: 550px;
         }
-        /*==================
-            MAIN CONTENT
-        ===================*/
+
+        .learn-more {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: rgb(66, 66, 255);
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 250ms;
+        }
+
+        .learn-more:hover {
+            background: lightblue;
+            color: rgb(66, 66, 255);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        .wrapper {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
         .message {
-            width: 50px;
-            background-color: rgb(147, 147, 242);
-            padding: 7px;
-            border-radius: 70%;
+            width: 55px;
+            height: 55px;
+            padding: 8px;
+            background: rgb(147, 147, 242);
+            border-radius: 50%;
+        }
+
+        .section-heading h2 {
+            margin: 0;
             
         }
-        .i {
-            display: flex;
-        }
-        .wrapper h2 {
-            margin-left: 10px;
-        }
+
         .topic-starter {
+            max-width: 850px;
+            margin: 20px auto 40px;
             text-align: center;
+            line-height: 1.7;
+            color: #dcecff;
         }
 
-        /*==================
-            CARDS
-        ================*/
+
+        /* =========================
+           CARDS
+        ========================== */
+
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.9em;
-            align-items: start;
-            margin-bottom: 0;
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
         .items {
-            border: 3px solid rgb(82, 87, 246);
-            border-radius: 5px;
+            min-height: 330px;
+            border: 2px solid rgb(82, 87, 246);
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    150deg,
+                    rgb(5, 75, 122),
+                    rgb(3, 3, 114)
+                );
+            padding: 30px 25px;
             text-align: center;
-            
-        }
-        .items h3,p {
-            margin-left: 10px;
-        }
-        .items svg {
-            background-color: white;
-            border-radius: 50%;
-            width: 60px;
-           
-        }
-        .item-3 svg {
-            background: 0;
-            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: transform 250ms, border-color 250ms;
         }
 
-       
-        /*==================
-            ending
-        ================*/
-        img {
-            width: 100%;
-            margin-top: 0;
+        .items:hover {
+            transform: translateY(-6px);
+            border-color: #07f1dd;
         }
-        .awarness-box {
+
+        .items h3 {
+            margin: 0 0 20px;
+            color: #07f1dd;
+            font-size: 1.3rem;
+        }
+
+        .items svg {
+            width: 90px;
+            height: 90px;
+            padding: 12px;
+            background: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .item-1 svg path {
+            fill: #054b7a;
+        }
+
+        .item-2 svg path {
+            fill: rgb(255, 75, 75);
+        }
+
+        .item-3 svg {
+            background: rgb(82, 87, 246);
+        }
+
+        .item-3 svg path {
+            fill: white;
+        }
+
+        .items p {
+            margin: 0;
+            line-height: 1.6;
+            color: #edf5ff;
+        }
+
+
+        /* =========================
+           AWARENESS SECTION
+        ========================== */
+
+        .awareness-section {
+            margin: 40px 0 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: #054b7a;
+            border-radius: 15px;
+            padding: 35px;
+        }
+
+        .awareness-section img {
+            width: 45%;
+            max-width: 550px;
+            height: auto;
+            margin: 0;
+        }
+
+        .awareness-box {
+            flex: 1;
             background: rgb(43, 43, 150);
-            border-radius: 7px;
-            padding: 5px;
-            position: absolute;
-            top: 1300px;
-            left: 400px;
-            max-width: 500px;
+            border-radius: 12px;
+            padding: 25px;
+
+            border-left: 4px solid #07f1dd;
         }
-        
-        
+
+        .awareness-box h2 {
+            margin-top: 0;
+            color: #07f1dd;
+        }
+
+        .awareness-box p {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           MOBILE NAVIGATION
+        ========================== */
+
+        @media (max-width: 705px) {
+
+            header {
+                padding: 15px 20px;
+                display: flex;
+            }
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            .open-button {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 28px;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            .close-button {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 20px;
+                background: none;
+                border: none;
+                color: lightblue;
+                font-size: 55px;
+                cursor: pointer;
+            }
+
+            nav {
+                position: fixed;
+                z-index: 10;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 100%;
+                width: 100%;
+                background: #002437;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(0);
+                transition: transform 250ms;
+            }
+
+            nav.navigation-open {
+                transform: translateX(-100%);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            nav a {
+                font-size: 25px;
+            }
+
+            .intro {
+                min-height: 600px;
+                padding: 50px 25px;
+                align-items: flex-end;
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(2, 2, 86, 0.25),
+                        rgba(2, 2, 86, 0.95)
+                    ),
+                    url("../images/Hacker.png");
+                background-size: cover;
+                background-position: center;
+            }
+            .intro-content {
+                width: 100%;
+            }
+            .intro h1 {
+                font-size: 42px;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            .items {
+                min-height: auto;
+            }
+            .awareness-section {
+                flex-direction: column;
+                padding: 25px;
+            }
+            .awareness-section img {
+                width: 100%;
+                max-width: 500px;
+                order: 2;
+            }
+            .awareness-box {
+                order: 1;
+            }
+        }
     </style>
 </head>
 
+
 <body>
-    <div class="container2 container-nav">
-         <header>
-            <h1>Game Changers</h1>
 
-            <button aria-label="Open navigation" class="open-button">&#9776;</button>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-         <nav class="nav">
-            <button aria-label="Close navigation" class="close-button">&times;</button>
-               <ul>
-                  <li><a href="#" class="current-page">Home</a></li>
-                  <li><a href="C-and-E.html">Causes & Effects</a></li>
-                  <li><a href="#">Prevention</a></li>
-                  <li><a href="#">Subjects & perspectives</a></li>
-                  <li><a href="#">Contact</a></li>
-               </ul>
-         </nav>
-         </header>
-      </div>
+    <header>
 
-        <div class="intro">
-            <h1>Stop CyberBullying</h1>
+        <h1>Game Changers</h1>
 
-            <P class="starter-p">Be Kind, Be Respectful <br> Be the Change</P>
+        <button
+            aria-label="Open navigation"
+            class="open-button">
+            &#9776;
+        </button>
 
-            <p>CyberBullying is a serius problem that affects millions
-                of children and teenagers around the world. It happens through games, websites and apps,
-                making it difficult for  victims to escape because the bullying can happen anytime and anywhere.
+        <nav class="nav">
+
+            <button
+                aria-label="Close navigation"
+                class="close-button">
+                &times;
+            </button>
+
+            <ul>
+
+                <li>
+                    <a href="#" class="current-page">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="C-and-E.html">
+                        Causes &amp; Effects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Prevention
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Subjects & perspectives
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="intro">
+
+        <div class="intro-content">
+
+            <h1>Stop Cyberbullying</h1>
+
+            <p class="starter-p">
+                Be Kind, Be Respectful<br>
+                Be the Change
             </p>
-            <div class="link-transform">
-            <a href="https://www.stopbullying.gov/cyberbullying/what-is-it">LEARN MORE</a>
-            </div>
+
+            <p class="intro-description">
+                Cyberbullying is a serious problem that affects millions
+                of children and teenagers around the world. It happens
+                through games, websites and apps, making it difficult
+                for victims to escape because the bullying can happen
+                anytime and anywhere.
+            </p>
+
+            <a
+                class="learn-more"
+                href="https://www.stopbullying.gov/cyberbullying/what-is-it">
+                LEARN MORE
+            </a>
+
         </div>
 
-        <div class="wrapper">
-            <div class="i">
-                <svg xmlns="http://w3.org" viewBox="0 0 512 512" fill="#1d2d50" class="message">
-                    <path d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 11.5 447.6 10.8 448.2c-3.6 2.8-5.3 7.3-4.3 11.8s4.8 7.9 9.5 8c61.2 1.1 112.2-25.2 137.2-39.8C184.6 441 219.8 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm-112 240c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
-                </svg>
-                <h2>What is Cyberbullying?</h2>
-            </div>
+    </section>
 
-            <p class="topic-starter">Imagine opening your phone and finding hurtful messages,
+
+    <!-- =========================
+         WHAT IS CYBERBULLYING
+    ========================== -->
+
+    <main class="wrapper">
+
+        <div class="section-heading">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                fill="#1d2d50"
+                class="message">
+
+                <path d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 11.5 447.6 10.8 448.2c-3.6 2.8-5.3 7.3-4.3 11.8s4.8 7.9 9.5 8c61.2 1.1 112.2-25.2 137.2-39.8C184.6 441 219.8 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm-112 240c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
+
+            </svg>
+
+            <h2>
+                What is Cyberbullying?
+            </h2>
+
+        </div>
+
+
+        <p class="topic-starter">
+
+            Imagine opening your phone and finding hurtful messages,
             embarrassing photos, or cruel comments waiting for you.
-            This is cyberbullying, a serious problem that affects millions
-            of children and teenagers around the world. </p>
+            This is cyberbullying, a serious problem that affects
+            millions of children and teenagers around the world.
 
-            <div class="cards">
-                <div  class="items item-1">
-                    <div>
-                        <h3>Where it happens</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M119.7 263.7L150.6 294.6C156.6 300.6 164.7 304 173.2 304L194.7 304C203.2 304 211.3 307.4 217.3 313.4L246.6 342.7C252.6 348.7 256 356.8 256 365.3L256 402.8C256 411.3 259.4 419.4 265.4 425.4L278.7 438.7C284.7 444.7 288.1 452.8 288.1 461.3L288.1 480C288.1 497.7 302.4 512 320.1 512C337.8 512 352.1 497.7 352.1 480L352.1 477.3C352.1 468.8 355.5 460.7 361.5 454.7L406.8 409.4C412.8 403.4 416.2 395.3 416.2 386.8L416.2 352.1C416.2 334.4 401.9 320.1 384.2 320.1L301.5 320.1C293 320.1 284.9 316.7 278.9 310.7L262.9 294.7C258.7 290.5 256.3 284.7 256.3 278.7C256.3 266.2 266.4 256.1 278.9 256.1L313.6 256.1C326.1 256.1 336.2 246 336.2 233.5C336.2 227.5 333.8 221.7 329.6 217.5L309.9 197.8C306 194 304 189.1 304 184C304 178.9 306 174 309.7 170.3L327 153C332.8 147.2 336.1 139.3 336.1 131.1C336.1 123.9 333.7 117.4 329.7 112.2C326.5 112.1 323.3 112 320.1 112C224.7 112 144.4 176.2 119.8 263.7zM528 320C528 285.4 519.6 252.8 504.6 224.2C498.2 225.1 491.9 228.1 486.7 233.3L473.3 246.7C467.3 252.7 463.9 260.8 463.9 269.3L463.9 304C463.9 321.7 478.2 336 495.9 336L520 336C522.5 336 525 335.7 527.3 335.2C527.7 330.2 527.8 325.1 527.8 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>
-                        <p>It happens through social media, online games, 
-                        messaging apps, and other digital platforms,
-                        making it difficult for victims to escape </p>
-                    </div>
-                </div>
+        </p>
 
-                <div  class="items item-2">
-                    <h3>Why it matters</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 75, 75)" d="M333.4 66.9C329.2 65 324.7 64 320 64C315.3 64 310.8 65 306.6 66.9L118.3 146.8C96.3 156.1 79.9 177.8 80 204C80.5 303.2 121.3 484.7 293.6 567.2C310.3 575.2 329.7 575.2 346.4 567.2C518.8 484.7 559.6 303.2 560 204C560.1 177.8 543.7 156.1 521.7 146.8L333.4 66.9zM313.6 247.5L320 256L326.4 247.5C337.5 232.7 354.9 224 373.3 224C405.7 224 432 250.3 432 282.7L432 288C432 337.1 366.2 386.1 335.5 406.3C326 412.5 314 412.5 304.6 406.3C273.9 386.1 208.1 337 208.1 288L208.1 282.7C208.1 250.3 234.4 224 266.8 224C285.3 224 302.7 232.7 313.7 247.5z"/></svg>
-                    <p>Cyberbullying can damage a person's confidence, mental
-                         health, relationships, and even their ability to 
-                         learn. As technology keeps evolving, understanding cyberbullying and learning
-                          how to prevent it is more important than ever.</p>
-                </div>
 
-                <div  class="items item-3">
-                    <h3>You can help</h3>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 80C377.4 80 424 126.6 424 184C424 241.4 377.4 288 320 288C262.6 288 216 241.4 216 184C216 126.6 262.6 80 320 80zM96 152C135.8 152 168 184.2 168 224C168 263.8 135.8 296 96 296C56.2 296 24 263.8 24 224C24 184.2 56.2 152 96 152zM0 480C0 409.3 57.3 352 128 352C140.8 352 153.2 353.9 164.9 357.4C132 394.2 112 442.8 112 496L112 512C112 523.4 114.4 534.2 118.7 544L32 544C14.3 544 0 529.7 0 512L0 480zM521.3 544C525.6 534.2 528 523.4 528 512L528 496C528 442.8 508 394.2 475.1 357.4C486.8 353.9 499.2 352 512 352C582.7 352 640 409.3 640 480L640 512C640 529.7 625.7 544 608 544L521.3 544zM472 224C472 184.2 504.2 152 544 152C583.8 152 616 184.2 616 224C616 263.8 583.8 296 544 296C504.2 296 472 263.8 472 224zM160 496C160 407.6 231.6 336 320 336C408.4 336 480 407.6 480 496L480 512C480 529.7 465.7 544 448 544L192 544C174.3 544 160 529.7 160 512L160 496z"/></svg>
+        <!-- =========================
+             THREE CARDS
+        ========================== -->
 
-                    <P>By raising awareness and encouraging kindness online, 
-                    we can help create a safer digital world for everyone, without 
-                    making anyone feel hurt.</P>
-                </div>
+        <div class="cards">
+
+
+            <!-- CARD 1 -->
+
+            <div class="items item-1">
+
+                <h3>
+                    Where it happens
+                </h3>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640">
+
+                    <path d="M119.7 263.7L150.6 294.6C156.6 300.6 164.7 304 173.2 304L194.7 304C203.2 304 211.3 307.4 217.3 313.4L246.6 342.7C252.6 348.7 256 356.8 256 365.3L256 402.8C256 411.3 259.4 419.4 265.4 425.4L278.7 438.7C284.7 444.7 288.1 452.8 288.1 461.3L288.1 480C288.1 497.7 302.4 512 320.1 512C337.8 512 352.1 497.7 352.1 480L352.1 477.3C352.1 468.8 355.5 460.7 361.5 454.7L406.8 409.4C412.8 403.4 416.2 395.3 416.2 386.8L416.2 352.1C416.2 334.4 401.9 320.1 384.2 320.1L301.5 320.1C293 320.1 284.9 316.7 278.9 310.7L262.9 294.7C258.7 290.5 256.3 284.7 256.3 278.7C256.3 266.2 266.4 256.1 278.9 256.1L313.6 256.1C326.1 256.1 336.2 246 336.2 233.5C336.2 227.5 333.8 221.7 329.6 217.5L309.9 197.8C306 194 304 189.1 304 184C304 178.9 306 174 309.7 170.3L327 153C332.8 147.2 336.1 139.3 336.1 131.1C336.1 123.9 333.7 117.4 329.7 112.2C326.5 112.1 323.3 112 320.1 112C224.7 112 144.4 176.2 119.8 263.7zM528 320C528 285.4 519.6 252.8 504.6 224.2C498.2 225.1 491.9 228.1 486.7 233.3L473.3 246.7C467.3 252.7 463.9 260.8 463.9 269.3L463.9 304C463.9 321.7 478.2 336 495.9 336L520 336C522.5 336 525 335.7 527.3 335.2C527.7 330.2 527.8 325.1 527.8 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/>
+
+                </svg>
+
+                <p>
+                    It happens through social media, online games,
+                    messaging apps, and other digital platforms,
+                    making it difficult for victims to escape.
+                </p>
+
             </div>
 
-            <div class="awarness-box">
-                    <p>Let's build a community 
-                        where everyone feels safe and respected. By lifting
-                         each other up and embracing our
-                         differences, we can create an inclusive space 
-                         built on mutual trust, kindness, and shared growth
-                          for every single member.</p>
+
+            <!-- CARD 2 -->
+
+            <div class="items item-2">
+
+                <h3>
+                    Why it matters
+                </h3>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640">
+
+                    <path d="M333.4 66.9C329.2 65 324.7 64 320 64C315.3 64 310.8 65 306.6 66.9L118.3 146.8C96.3 156.1 79.9 177.8 80 204C80.5 303.2 121.3 484.7 293.6 567.2C310.3 575.2 329.7 575.2 346.4 567.2C518.8 484.7 559.6 303.2 560 204C560.1 177.8 543.7 156.1 521.7 146.8L333.4 66.9zM313.6 247.5L320 256L326.4 247.5C337.5 232.7 354.9 224 373.3 224C405.7 224 432 250.3 432 282.7L432 288C432 337.1 366.2 386.1 335.5 406.3C326 412.5 314 412.5 304.6 406.3C273.9 386.1 208.1 337 208.1 288L208.1 282.7C208.1 250.3 234.4 224 266.8 224C285.3 224 302.7 232.7 313.7 247.5z"/>
+
+                </svg>
+
+                <p>
+                    Cyberbullying can damage a person's confidence,
+                    mental health, relationships, and even their ability
+                    to learn. As technology keeps evolving, understanding
+                    cyberbullying and learning how to prevent it is more
+                    important than ever.
+                </p>
+
             </div>
-            <img src="../images/people-waving.png">
+
+
+            <!-- CARD 3 -->
+
+            <div class="items item-3">
+
+                <h3>
+                    You can help
+                </h3>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640">
+
+                    <path d="M320 80C377.4 80 424 126.6 424 184C424 241.4 377.4 288 320 288C262.6 288 216 241.4 216 184C216 126.6 262.6 80 320 80zM96 152C135.8 152 168 184.2 168 224C168 263.8 135.8 296 96 296C56.2 296 24 263.8 24 224C24 184.2 56.2 152 96 152zM0 480C0 409.3 57.3 352 128 352C140.8 352 153.2 353.9 164.9 357.4C132 394.2 112 442.8 112 496L112 512C112 523.4 114.4 534.2 118.7 544L32 544C14.3 544 0 529.7 0 512L0 480zM521.3 544C525.6 534.2 528 523.4 528 512L528 496C528 442.8 508 394.2 475.1 357.4C486.8 353.9 499.2 352 512 352C582.7 352 640 409.3 640 480L640 512C640 529.7 625.7 544 608 544L521.3 544zM472 224C472 184.2 504.2 152 544 152C583.8 152 616 184.2 616 224C616 263.8 583.8 296 544 296C504.2 296 472 263.8 472 224zM160 496C160 407.6 231.6 336 320 336C408.4 336 480 407.6 480 496L480 512C480 529.7 465.7 544 448 544L192 544C174.3 544 160 529.7 160 512L160 496z"/>
+
+                </svg>
+
+                <p>
+                    By raising awareness and encouraging kindness
+                    online, we can help create a safer digital world
+                    for everyone, without making anyone feel hurt.
+                </p>
+
+            </div>
+
         </div>
+
+
+        <!-- =========================
+             AWARENESS SECTION
+        ========================== -->
+
+        <section class="awareness-section">
+
+            <div class="awareness-box">
+
+                <h2>
+                    Be Part of the Change
+                </h2>
+
+                <p>
+                    Let's build a community where everyone feels safe
+                    and respected. By lifting each other up and embracing
+                    our differences, we can create an inclusive space
+                    built on mutual trust, kindness, and shared growth
+                    for every single member.
+                </p>
+
+            </div>
+            <img
+                src="../images/people-waving.png"
+                alt="People waving">
+        </section>
+    </main>
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
         const closeButton = document.querySelector('.close-button');
         const openButton = document.querySelector('.open-button');
         const nav = document.querySelector('.nav');
-
         closeButton.addEventListener('click', () => {
-        nav.classList.remove('navigation-open');
+            nav.classList.remove('navigation-open');
         });
 
-        openButton.addEventListener("click", () => {
+        openButton.addEventListener('click', () => {
             nav.classList.add('navigation-open');
-        }); 
+        });
     </script>
 </body>
 </html>

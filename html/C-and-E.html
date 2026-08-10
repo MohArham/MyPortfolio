@@ -25,108 +25,54 @@
                 max-width: 2000px;
             }
             header {
-                text-align: center;
-                color: #07f1dd;
-            }
+            background: #054b7a;
+            color: #07f1dd;
+            padding: 15px 5%;
+            text-align: center;
+        }
 
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            white-space: nowrap;
+        }
 
-            nav li {
-                margin: 10px 0;
-            }
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-            header h1 {
-                text-align: center;
-                padding-left: 5px;
-                font-family: cascadia code;
-            }
-            nav a {
-                text-decoration: none;
-                color: inherit;
-                transform: scale(1);
-                transition: all 250ms;
-                padding: .25em;
-                font-family: Cascadia Code;
-            }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-family: "Cascadia Code", monospace;
+            font-weight: bold;
+            transition: color 250ms, transform 250ms;
+            display: inline-block;
+        }
 
-            nav a:hover {
-                color: rgb(108, 152, 246);
-                transform: scale(1.1);
-            }
+        nav a:hover {
+            color: #6c98f6;
+    
+        }
 
-            .current-page {
-                border-bottom: 2px solid lightblue;
-                padding-bottom: 1px;
-            }
+        .current-page {
+            border-bottom: 2px solid lightblue;
+            padding-bottom: 3px;
+        }
 
-            .current-page:hover {
-                color: inherit;
-            }
-
-            nav li {
-                margin-right: 12px;
-                font-family: Cascadia Code;
-                margin-bottom: 60px;
-            }
-            nav ul {
-                list-style: none;
-                margin: 0;
-                padding-left: 20px;
-                padding-right: 20px;
-                font-weight: bold;
-            }
-
-            header {
-                padding: 10px 20px;
-                background-color: #054b7a;
-                margin-bottom: 0;
-            }
-
-            .close-button {
-                margin-left: auto ;
-                position: absolute;
-                left: 20px;
-                top: 0px;
-                font-size: 100px;
-                background: 0;
-                border: 0;
-                color: lightblue;
-                cursor: pointer;
-            }
-            .navigation-open {
-                transform: translateX(-100%);
-            }
+        .open-button,
+        .close-button {
+            display: none;
+        }
 
 
-            nav {
-                position: fixed;
-                z-index: 10;
-                width: 100%;
-                top: 0;
-                right: 0;
-                left:100%;
-                bottom: 0;
-                background:#002437;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 30px;
-                transform: translateX(0);
-                transition: transform 250ms;
-            }
-
-            .open-button {
-                background: none;
-                border: none;
-                font-weight: 700;
-                font-size: 20px;
-                color: rgb(0, 0, 0);
-                cursor: pointer;
-            }
 
             @media (min-width: 706px) { 
                 .open-button, .close-button {
@@ -165,13 +111,88 @@
                 }
             }
 
+             @media (max-width: 705px) {
+
+            header {
+                padding: 15px 20px;
+                display: flex;
+            }
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            .open-button {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 28px;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            .close-button {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 20px;
+                background: none;
+                border: none;
+                color: lightblue;
+                font-size: 55px;
+                cursor: pointer;
+            }
+
+            nav {
+                position: fixed;
+                z-index: 10;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 100%;
+                width: 100%;
+                background: #002437;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(0);
+                transition: transform 250ms;
+            }
+
+            nav.navigation-open {
+                transform: translateX(-100%);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            nav a {
+                font-size: 25px;
+            }
+
+            .cards {
+                grid-template-areas: 
+                    "item1 item1 item3"
+                "heading   heading   heading"
+                    "item4 item5 item6";
+
+            }
+        }
+
             h1 {
                 text-align: center;
             }
 
             .cards {
                 display: grid;
-                grid-template: repeat(3, 1fr), 1fr 1fr 1fr;
+                grid-template: 1fr 1fr 1fr;
                 gap: 1em;
                 grid-template-areas: 
                     "item1 item2 item3"
@@ -181,10 +202,27 @@
             }
 
             .items {
-                background: linear-gradient(rgb(1, 73, 97), rgb(3, 3, 114), black);
-                border-radius: 10px;
-                padding: 10px;
-            }
+            border: 2px solid rgb(82, 87, 246);
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    150deg,
+                    rgb(5, 75, 122),
+                    rgb(3, 3, 114)
+                );
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: transform 250ms, border-color 250ms;
+        }
+
+        .items:hover {
+            transform: translateY(-6px);
+            border-color: #07f1dd;
+        }
 
             .item-1, .item-2, .item-3 {
                 box-shadow: 2px 2px 35px rgb(214, 214, 214);
@@ -220,8 +258,6 @@
                 text-transform: uppercase;
                 color: rgb(249, 145, 249);
             }
-
-
 
         </style>
     </head>
@@ -289,7 +325,7 @@
             </div>
 
         </div>
-
+        <img src="../images/ending.png">
 
 
         <script>
