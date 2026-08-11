@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Prevention</title>
-        <style>
+        <title>Causes and Effects</title>
 
+
+        <style>
+            body {
+                margin: 0 auto;
+                font-family: "cascadia code", monospace;
+                background: rgb(2, 2, 86);
+                color: white;
+                text-align: center;
+            }
+
+            img {
+                display: block;
+                width: 80px;
+                max-width: 100%;
+            }
+
+            .wrapper {
+                width: 90%;
+                margin: 0 auto;
+                max-width: 2000px;
+            }
             header {
             background: #054b7a;
             color: #07f1dd;
@@ -156,11 +176,41 @@
             nav a {
                 font-size: 25px;
             }
+        }
+
+            h1 {
+                text-align: center;
+            }
+
         </style>
     </head>
-    <body>
 
-        
+
+    <body>
+        <div class="container2 container-nav">
+         <header>
+            <h1>Game Changers</h1>
+
+            <button aria-label="Open navigation" class="open-button">&#9776;</button>
+
+         <nav class="nav">
+            <button aria-label="Close navigation" class="close-button">&times;</button>
+               <ul>
+                  <li><a href="CyberBullying.html">Home</a></li>
+                  <li><a href="C-and-E.html" class="current-page">Causes & Effects</a></li>
+                  <li><a href="Prevention.html">Prevention</a></li>
+                  <li><a href="#">Subjects & perspectives</a></li>
+                  <li><a href="#">Contact</a></li>
+               </ul>
+         </nav>
+         </header>
+      </div>
+
+        <div class="wrapper">
+            <h1>How to prevent CyberBullying</h1>
+
+        </div>
+
         <script>
         const closeButton = document.querySelector('.close-button');
         const openButton = document.querySelector('.open-button');
