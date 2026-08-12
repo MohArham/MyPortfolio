@@ -182,6 +182,54 @@
                 text-align: center;
             }
 
+
+
+
+
+            .cards {
+                display: flex;
+                gap: 1em;
+                margin-top: 30px;
+            }
+
+            .items {
+                border: 2px solid rgb(82, 87, 246);
+                border-radius: 12px;
+                background:
+                    linear-gradient(
+                        150deg,
+                        rgb(5, 75, 122),
+                        rgb(3, 3, 114)
+                    );
+                padding: 10px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                transition: transform 400ms, border-color 250ms;
+                width: 550px;
+            }
+            .items:hover {
+                transform: translateY(-6px);
+                border-color: #07f1dd;
+                box-shadow: 1px 1px 35px rgb(214, 214, 214);
+            }
+            svg {
+                width: 70px;
+                height: 70px;
+            }
+
+            .tickSHEILD path{
+                fill: green;
+            }
+
+            .item-2 svg{
+                border-radius: 50%;
+                background: rgb(2, 163, 2);
+                padding: 8px;
+            }
+
         </style>
     </head>
 
@@ -208,6 +256,49 @@
 
         <div class="wrapper">
             <h1>How to prevent CyberBullying</h1>
+            <p>We all have the power to make children, teenagers and adults feel safe when using the internet.</p>
+
+            <div class="cards">
+                <div class="items item-1" onclick="">
+                    <h2>BLOCK</h2>
+
+                    <svg class="tickSHEILD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+
+                    <p>It happens through social media, online games,
+                        messaging apps, and other digital platforms,
+                        making it difficult for victims to escape.
+                    </p>
+                </div>
+
+                <div class="items item-2" onclick="">
+                    <h2>REPORT</h2>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M160 96C160 78.3 145.7 64 128 64C110.3 64 96 78.3 96 96L96 544C96 561.7 110.3 576 128 576C145.7 576 160 561.7 160 544L160 422.4L222.7 403.6C264.6 391 309.8 394.9 348.9 414.5C391.6 435.9 441.4 438.5 486.1 421.7L523.2 407.8C535.7 403.1 544 391.2 544 377.8L544 130.1C544 107.1 519.8 92.1 499.2 102.4L487.4 108.3C442.5 130.8 389.6 130.8 344.6 108.3C308.2 90.1 266.3 86.5 227.4 98.2L160 118.4L160 96z"/></svg>
+
+                    <p>Cyberbullying can damage a person's confidence,
+                        mental health, relationships, and even their ability
+                        to learn. As technology keeps evolving, understanding
+                        cyberbullying and learning how to prevent it is more
+                        important than ever.</p>
+                </div>
+
+                <div class="items item-3" onclick="">
+                    <h2>TELL</h2>
+                    <p>By raising awareness and encouraging kindness
+                        online, we can help create a safer digital world
+                        for everyone, without making anyone feel hurt.</p>
+                </div>
+
+                <div class="items item-4" onclick="">
+                    <h2>SUPPORT</h2>
+                    <p>By raising awareness and encouraging kindness
+                        online, we can help create a safer digital world
+                        for everyone, without making anyone feel hurt.</p>
+                </div>
+            </div>
 
         </div>
 
