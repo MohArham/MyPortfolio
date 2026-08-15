@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Subjects and Perspectives</title>
+        <link rel="stylesheet" href="../styles.css">
+
+        <style>
+            body {
+                margin: 0;
+                font-family: "cascadia code", monospace;
+                background: linear-gradient(to right, black, rgb(2, 2, 86));
+                color: white;
+                text-align: center;
+
+                display: grid;
+                grid-template: auto 1fr/1.5fr 2fr ;
+            }
+
+            .container2 {
+                grid-column: 1 / -1;
+                grid-row: 1;
+            }
+
+            .intro-part {
+                grid-column: 1;
+                grid-row: 2;
+
+                width: 90%;
+                margin: 0 auto;
+                max-width: 2000px;
+            }
+            
+            img {
+                display: block;
+                width: 80px;
+                max-width: 100%;
+            }
+
+            .wrapper {
+                width: 90%;
+                margin: 0 auto;
+                max-width: 2000px;
+            }
+            header {
+            background: #054b7a;
+            color: #07f1dd;
+            padding: 15px 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-family: "Cascadia Code", monospace;
+            font-weight: bold;
+            transition: color 250ms, transform 250ms;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #6c98f6;
+    
+        }
+
+        .current-page {
+            border-bottom: 2px solid lightblue;
+            padding-bottom: 3px;
+        }
+
+        .open-button,
+        .close-button {
+            display: none;
+        }
+
+
+
+            @media (min-width: 706px) { 
+                .open-button, .close-button {
+                    display: none;
+                }
+                header {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                }
+                header h1 {
+                    font-size: 40px;
+                }
+
+                nav {
+                    position: static;
+                    width: auto;
+                    background: none;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-size: initial;
+                    transform: none;
+                }
+
+                nav ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                nav li {
+                    margin: 0 12px 0 0;
+                }
+            }
+
+             @media (max-width: 705px) {
+
+                header {
+                    padding: 15px 20px;
+                    display: flex;
+                }
+
+                header h1 {
+                    font-size: 35px;
+                }
+
+                .open-button {
+                    display: block;
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 28px;
+                    cursor: pointer;
+                    margin-left: auto;
+                }
+
+                .close-button {
+                    display: block;
+                    position: absolute;
+                    top: 15px;
+                    left: 20px;
+                    background: none;
+                    border: none;
+                    color: lightblue;
+                    font-size: 55px;
+                    cursor: pointer;
+                }
+
+                nav {
+                    position: fixed;
+                    z-index: 10;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 100%;
+                    width: 100%;
+                    background: #002437;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: translateX(0);
+                    transition: transform 250ms;
+                }
+
+                nav.navigation-open {
+                    transform: translateX(-100%);
+                }
+
+                nav ul {
+                    flex-direction: column;
+                    gap: 35px;
+                }
+
+                nav li {
+                    margin: 0;
+                }
+
+                nav a {
+                    font-size: 25px;
+                }
+            }
+
+            /*==================
+                MAIN CONTENT
+            ===================*/
+
+            .intro-part {
+                text-align: left;
+            }
+
+            .map-img {
+                width: 100%
+            }
+
+            /* ===============
+                  CARDS 
+            ===============*/
+            .cards {
+                display: grid;
+                grid-template: 1fr 20px 1fr/ repeat(4, 1fr);
+                gap: 1em;
+                margin-top: 30px;
+            }
+
+            .items {
+                border: 2px solid rgb(19, 215, 176);
+                border-radius: 12px;
+                background:
+                    linear-gradient(
+                        150deg,
+                        rgb(3, 84, 53),
+                        rgb(3, 3, 114)
+                    );
+                padding: 10px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                transition: transform 400ms, border-color 250ms;
+                
+            }
+            .items:hover {
+                transform: translateY(-6px);
+                border-color: #07f1dd;
+                box-shadow: 1px 1px 35px rgb(214, 214, 214);
+            }
+            .items svg {
+                border-radius: 1.2pc;
+            }
+            .title {
+                grid-column: 1 / -1;
+                text-align: center;
+                font-size: 30px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container2 container-nav">
+         <header>
+            <h1>Game Changers</h1>
+
+            <button aria-label="Open navigation" class="open-button">&#9776;</button>
+
+         <nav class="nav">
+            <button aria-label="Close navigation" class="close-button">&times;</button>
+               <ul>
+                  <li><a href="CyberBullying.html">Home</a></li>
+                  <li><a href="C-and-E.html">Causes & Effects</a></li>
+                  <li><a href="Prevention.html" class="current-page">Prevention</a></li>
+                  <li><a href="SubjectsPerspectives.html">Subjects & perspectives</a></li>
+                  <li><a href="#">Contact</a></li>
+               </ul>
+         </nav>
+         </header>
+      </div>
+
+      <div class="intro-part">
+        <h1>PERSPECTIVES FROM AROUND THE WORLD</h1>
+        <P>Different contries, same goal: 
+            <br>
+            a safer digital world</P>
+        <img class="map-img" src="WorldMap.png">
+    </div>
+
+    <div class="cards">
+        <div class="items item-1" onclick="">
+            <h2>UAE</h2>
+                <svg xmlns="http://w3.org" viewBox="0 0 1200 600" width="100%" height="100%">
+                    <!-- Background / Black Stripe -->
+                    <rect width="1200" height="600" fill="#000000"/>
+                    <!-- White Stripe -->
+                    <rect width="1200" height="400" fill="#FFFFFF"/>
+                    <!-- Green Stripe -->
+                    <rect width="1200" height="200" fill="#00732F"/>
+                    <!-- Red Vertical Hoist Stripe -->
+                    <rect width="300" height="600" fill="#FF0000"/>
+                </svg>
+                <p>Strong laws and awarness compaigns are helping safer online comumonities</p>
+            </div>
+            <div class="items item-2" onclick="">
+                <h2>USA</h2>
+                <svg xmlns="http://w3.org" viewBox="0 0 1900 1000" width="100%" height="100%">
+                <defs>
+                    <!-- Single 5-pointed star centered at 0,0 -->
+                    <g id="star">
+                    <polygon points="0,-30.8 9.1,-12.3 29.3,-9.4 14.7,4.8 18.1,25 0,15.5 -18.1,25 -14.7,4.8 -29.3,-9.4 -9.1,-12.3" fill="#FFFFFF"/>
+                    </g>
+                    <!-- Row of 6 stars -->
+                    <g id="row6">
+                    <use href="#star" x="123.5"/>
+                    <use href="#star" x="247"/>
+                    <use href="#star" x="370.5"/>
+                    <use href="#star" x="494"/>
+                    <use href="#star" x="617.5"/>
+                    <use href="#star" x="741"/>
+                    </g>
+                    <!-- Row of 5 stars -->
+                    <g id="row5">
+                    <use href="#star" x="185.25"/>
+                    <use href="#star" x="308.75"/>
+                    <use href="#star" x="432.25"/>
+                    <use href="#star" x="555.75"/>
+                    <use href="#star" x="679.25"/>
+                    </g>
+                </defs>
+
+                <!-- Background / Red Stripes -->
+                <rect width="1900" height="1000" fill="#B22234"/>
+                
+                <!-- 6 White Stripes -->
+                <rect y="76.9" width="1900" height="76.9" fill="#FFFFFF"/>
+                <rect y="230.8" width="1900" height="76.9" fill="#FFFFFF"/>
+                <rect y="384.6" width="1900" height="76.9" fill="#FFFFFF"/>
+                <rect y="538.5" width="1900" height="76.9" fill="#FFFFFF"/>
+                <rect y="692.3" width="1900" height="76.9" fill="#FFFFFF"/>
+                <rect y="846.2" width="1900" height="76.9" fill="#FFFFFF"/>
+
+                <!-- Blue Canton (Union) -->
+                <rect width="760" height="538.5" fill="#3C3B6E"/>
+
+                <!-- 50 Star Grid (9 alternating rows) -->
+                <use href="#row6" y="53.8"/>
+                <use href="#row5" y="107.7"/>
+                <use href="#row6" y="161.5"/>
+                <use href="#row5" y="215.4"/>
+                <use href="#row6" y="269.2"/>
+                <use href="#row5" y="323.1"/>
+                <use href="#row6" y="376.9"/>
+                <use href="#row5" y="430.8"/>
+                <use href="#row6" y="484.6"/>
+                </svg>
+
+                <p>Focuses on digital rights, mental health support, and reporting systems</p>
+            </div>
+
+            <div class="items item-3" onclick="">
+                <h2>INDIA</h2>
+                <svg xmlns="http://w3.org" viewBox="0 0 900 600" width="100%" height="100%">
+                <defs>
+                    <!-- One single spoke out of 24 (rotated dynamically later) -->
+                    <g id="spoke">
+                    <polygon points="446,300 450,225 454,300" fill="#000080"/>
+                    <circle cx="450" cy="216" r="3.5" fill="#000080"/>
+                    </g>
+                </defs>
+
+                <!-- Top Stripe: India Saffron (Kesharia) -->
+                <rect width="900" height="200" fill="#FF9933"/>
+                
+                <!-- Middle Stripe: White -->
+                <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                
+                <!-- Bottom Stripe: India Green (Green) -->
+                <rect y="400" width="900" height="200" fill="#138808"/>
+
+                <!-- Ashoka Chakra (Navy Blue Wheel) -->
+                <g id="chakra">
+                    <!-- Outer Ring -->
+                    <circle cx="450" cy="300" r="92.5" fill="none" stroke="#000080" stroke-width="10"/>
+                    <!-- Inner Hub Ring -->
+                    <circle cx="450" cy="300" r="20" fill="none" stroke="#000080" stroke-width="5"/>
+                    <!-- Center Pin -->
+                    <circle cx="450" cy="300" r="8" fill="#000080"/>
+                    
+                    <!-- 24 Spokes (Rotated every 15 degrees) -->
+                    <use href="#spoke"/>
+                    <use href="#spoke" transform="rotate(15, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(30, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(45, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(60, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(75, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(90, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(105, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(120, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(135, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(150, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(165, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(180, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(195, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(210, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(225, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(240, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(255, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(270, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(285, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(300, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(315, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(330, 450, 300)"/>
+                    <use href="#spoke" transform="rotate(345, 450, 300)"/>
+                </g>
+                </svg>
+
+                <p>Programs in schools and comunities are increasing awwarness and prevention.</p>
+            </div>
+
+            <div class="items item-4" onclick="">
+                <h2>FINLAND</h2>
+                <svg xmlns="http://w3.org" viewBox="0 0 1200 600" width="100%" height="100%">
+                <!-- Inner flag scaled and centered to match the visual weight of a 1:2 layout -->
+                <g transform="translate(109, 47) scale(0.545)">
+                    <!-- Actual 1800x1100 Finland Flag -->
+                    <rect width="1800" height="1100" fill="#FFFFFF"/>
+                    <path d="M0,400 h1800 v300 h-1800 z M500,0 h300 v1100 h-300 z" fill="#002F6C"/>
+                </g>
+                </svg>
+                <p>Education and kindness are national piority. Everyone plays a part in this to stop cyberbullying</p>
+            </div>
+
+            <h2 class="title">Subject Integration</h2>
+
+
+
+
+            <div class="items item-5" onclick="">
+                    <h2>Science</h2>
+
+                    <svg class="tickSHEILD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+
+                    <p>Study the effects of cyberbullying on mental health, emotions, feelings and academic performance.</p>
+
+                </div>
+
+                <div class="items item-6" onclick="">
+                    <h2>REPORT</h2>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M160 96C160 78.3 145.7 64 128 64C110.3 64 96 78.3 96 96L96 544C96 561.7 110.3 576 128 576C145.7 576 160 561.7 160 544L160 422.4L222.7 403.6C264.6 391 309.8 394.9 348.9 414.5C391.6 435.9 441.4 438.5 486.1 421.7L523.2 407.8C535.7 403.1 544 391.2 544 377.8L544 130.1C544 107.1 519.8 92.1 499.2 102.4L487.4 108.3C442.5 130.8 389.6 130.8 344.6 108.3C308.2 90.1 266.3 86.5 227.4 98.2L160 118.4L160 96z"/></svg>
+
+                    
+                </div>
+
+                <div class="items item-7" onclick="">
+                    <h2>TELL</h2>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z"/></svg>
+                    
+                </div>
+
+                <div class="items item-8" onclick="">
+                    <h2>SUPPORT</h2>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 64C390.7 64 448 121.3 448 192C448 262.7 390.7 320 320 320C249.3 320 192 262.7 192 192C192 121.3 249.3 64 320 64zM40 128C62.1 128 80 145.9 80 168L80 328.2C80 345.2 86.7 361.5 98.7 373.5L149.8 424.6C158.1 432.9 171.1 434.2 180.8 427.7C193.7 419.1 195.5 400.8 184.5 389.9C177.2 382.6 161.4 366.8 137.3 342.7C124.8 330.2 124.8 309.9 137.3 297.4C149.8 284.9 170.1 284.9 182.6 297.4C206.7 321.5 222.5 337.3 229.8 344.6L229.8 344.6L255.1 369.9C276.1 390.9 287.9 419.4 287.9 449.1L287.9 528C287.9 554.5 266.4 576 239.9 576L173.2 576C156.2 576 139.9 569.3 127.9 557.3L28.1 457.4C10.1 439.4 0 415 0 389.5L0 168C0 145.9 17.9 128 40 128zM600 128C622.1 128 640 145.9 640 168L640 389.5C640 415 629.9 439.4 611.9 457.4L512 557.3C500 569.3 483.7 576 466.7 576L400 576C373.5 576 352 554.5 352 528L352 449.1C352 419.4 363.8 390.9 384.8 369.9L410.1 344.6L410.1 344.6C417.4 337.3 433.2 321.5 457.3 297.4C469.8 284.9 490.1 284.9 502.6 297.4C515.1 309.9 515.1 330.2 502.6 342.7C478.5 366.8 462.7 382.6 455.4 389.9C444.4 400.9 446.2 419.1 459.1 427.7C468.8 434.2 481.8 432.9 490.1 424.6L541.2 373.5C553.2 361.5 559.9 345.2 559.9 328.2L560 168C560 145.9 577.9 128 600 128z"/></svg>
+
+                </div>
+        </div>
+
+
+
+
+
+      <script>
+        const closeButton = document.querySelector('.close-button');
+        const openButton = document.querySelector('.open-button');
+        const nav = document.querySelector('.nav');
+
+        closeButton.addEventListener('click', () => {
+        nav.classList.remove('navigation-open');
+        });
+
+        openButton.addEventListener("click", () => {
+            nav.classList.add('navigation-open');
+        }); 
+    </script>
+    </body>
+</html>
