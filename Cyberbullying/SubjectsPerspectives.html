@@ -31,12 +31,6 @@
                 margin: 0 auto;
                 max-width: 2000px;
             }
-            
-            img {
-                display: block;
-                width: 80px;
-                max-width: 100%;
-            }
 
             .wrapper {
                 width: 90%;
@@ -214,9 +208,10 @@
             ===============*/
             .cards {
                 display: grid;
-                grid-template: 1fr 20px 1fr/ repeat(4, 1fr);
+                grid-template-columns: repeat(4, 1fr);
                 gap: 1em;
                 margin-top: 30px;
+                margin-right: 20px;
             }
 
             .items {
@@ -243,13 +238,133 @@
                 box-shadow: 1px 1px 35px rgb(214, 214, 214);
             }
             .items svg {
-                border-radius: 1.2pc;
+                border-radius: 1.5pc;
             }
+
             .title {
                 grid-column: 1 / -1;
                 text-align: center;
                 font-size: 30px;
                 margin-top: 20px;
+            }
+
+            .items2 {
+                border: 2px solid rgb(19, 215, 176);
+                border-radius: 12px;
+                background:
+                    linear-gradient(
+                        150deg,
+                        rgb(84, 70, 3),
+                        rgb(3, 3, 114)
+                    );
+                padding: 10px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                transition: transform 400ms, border-color 250ms; 
+                margin-top: 50px;
+                margin-bottom: 40px;
+            }
+            .items2:hover {
+                transform: translateY(-6px);
+                border-color: #07f1dd;
+                box-shadow: 1px 1px 35px rgb(214, 214, 214);
+            }
+
+            .items2 svg {
+                width: 70px;
+                background: rgb(187, 163, 7);
+                border-radius: 40%;
+                padding: 5px;
+
+            }
+
+            .map-img {
+                width: 100%;
+                height: auto;
+            }
+
+            /*==============
+                PINPOINTS
+            ==============*/
+            .map-container {
+                content: "";
+                position: relative;
+            }
+            .pin {
+                position: absolute;
+                width: 20px;
+                transform: translate(-50%, -100%);
+                cursor: pointer;
+                transition: transform 250ms;
+            }
+
+            .pin-label {
+                position: absolute;
+                bottom: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                background: rgba(0, 0, 0, 0.85);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 6px;
+
+                font-size: 14px;
+                font-weight: bold;
+                white-space: nowrap;
+
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s, transform 0.3s;
+            }
+
+            .pin:hover .pin-label {
+                opacity: 1;
+                transform: translateX(-50%) translateY(-5px);
+            }
+            .pin:hover {
+                transform: translate(-50%, -100%) scale(1.4);
+                filter: drop-shadow(0 0 8px white);
+                
+            }
+
+            .pin:hover {
+                filter: drop-shadow(0 0 8px white);
+            }
+            .uae {
+                left: 64%;
+                top: 50%;
+                color: red;
+            }
+
+            .uae path {
+                fill: red;
+            }
+
+            .usa {
+                left: 23%;
+                top: 38%;
+            }
+
+            .usa path {
+                fill: rgb(112, 112, 248);
+            }
+
+            .india {
+                left: 69%;
+                top: 48%;
+            }
+
+            .india path {
+                fill: rgb(244, 158, 84);
+            }
+
+            .finland {
+                left: 54%;
+                top: 25%;
             }
         </style>
     </head>
@@ -277,8 +392,31 @@
         <h1>PERSPECTIVES FROM AROUND THE WORLD</h1>
         <P>Different contries, same goal: 
             <br>
-            a safer digital world</P>
-        <img class="map-img" src="WorldMap.png">
+        a safer digital world</P>
+        <div class="map-container">
+            <img class="map-img" src="WorldMap.png">
+
+            <div class="pin uae">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                <span class="pin-label">UAE</span>
+            </div>
+
+            <div class="pin usa">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                <span class="pin-label">USA</span>
+            </div>
+
+            <div class="pin india">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                <span class="pin-label">India</span>
+            </div>
+            
+            
+            <div class="pin finland">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                <span class="pin-label">Finland</span>
+            </div>
+        </div>
     </div>
 
     <div class="cards">
@@ -430,38 +568,29 @@
 
 
 
-            <div class="items item-5" onclick="">
+            <div class="items2 item-5" onclick="">
                     <h2>Science</h2>
-
-                    <svg class="tickSHEILD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="M9 12l2 2 4-4"/>
-                    </svg>
-
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 462.8C308.2 467.9 296.6 472.5 285.1 476.3C301.8 510.1 316.1 512 320 512C323.9 512 338.1 510.1 354.9 476.3C343.5 472.4 331.8 467.9 320 462.8zM510 320C543 365.2 554.3 410.9 533.6 448C513.4 484.3 471.1 497.3 418.4 491.2C396.4 543.3 362.7 576 320 576C277.3 576 243.6 543.3 221.6 491.2C168.9 497.3 126.6 484.3 106.4 448C85.7 410.9 97 365.2 130 320C97 274.8 85.7 229.1 106.4 192C126.6 155.7 168.9 142.7 221.6 148.8C243.6 96.7 277.2 64 320 64C362.8 64 396.4 96.7 418.4 148.8C471.1 142.7 513.4 155.6 533.6 192C554.3 229.1 543 274.8 510 320zM444.2 387.4C442.5 401.6 440.3 415.4 437.5 428.6C469.3 430 476.1 419.9 477.7 416.9C480 412.7 484.7 399 465.8 368.8C459 375.1 451.8 381.3 444.2 387.4zM437.5 211.5C440.3 224.6 442.5 238.4 444.2 252.7C451.8 258.8 459 265 465.8 271.3C484.7 241.1 480 227.3 477.7 223.2C476.1 220.3 469.3 210.2 437.5 211.5zM354.9 163.7C338.1 129.9 323.9 128 320 128C316.1 128 301.9 129.9 285.1 163.7C296.5 167.6 308.2 172.1 320 177.2C331.8 172.1 343.4 167.5 354.9 163.7zM195.9 252.6C197.6 238.3 199.8 224.6 202.6 211.4C170.8 210 164 220.1 162.4 223.1C160.1 227.3 155.4 241 174.3 271.2C181.1 264.9 188.3 258.7 195.9 252.6zM174.2 368.8C155.3 399 160 412.8 162.3 416.9C163.9 419.8 170.7 429.9 202.5 428.6C199.7 415.5 197.5 401.7 195.8 387.4C188.2 381.3 181 375.1 174.2 368.8zM400 320C400 275.8 364.2 240 320 240C275.8 240 240 275.8 240 320C240 364.2 275.8 400 320 400C364.2 400 400 364.2 400 320zM320 288C337.7 288 352 302.3 352 320C352 337.7 337.7 352 320 352C302.3 352 288 337.7 288 320C288 302.3 302.3 288 320 288z"/></svg>
                     <p>Study the effects of cyberbullying on mental health, emotions, feelings and academic performance.</p>
-
                 </div>
 
-                <div class="items item-6" onclick="">
-                    <h2>REPORT</h2>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M160 96C160 78.3 145.7 64 128 64C110.3 64 96 78.3 96 96L96 544C96 561.7 110.3 576 128 576C145.7 576 160 561.7 160 544L160 422.4L222.7 403.6C264.6 391 309.8 394.9 348.9 414.5C391.6 435.9 441.4 438.5 486.1 421.7L523.2 407.8C535.7 403.1 544 391.2 544 377.8L544 130.1C544 107.1 519.8 92.1 499.2 102.4L487.4 108.3C442.5 130.8 389.6 130.8 344.6 108.3C308.2 90.1 266.3 86.5 227.4 98.2L160 118.4L160 96z"/></svg>
-
+                <div class="items2 item-6" onclick="">
+                    <h2>Mathematics</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z"/></svg>
+                    <p>Cyberbullying is like a multiplication problem that grows too fast. When mean comments get shared repeatedly, the hurt multiplies quickly.</p>
                     
                 </div>
 
-                <div class="items item-7" onclick="">
-                    <h2>TELL</h2>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304C64 358.3 83.2 408.3 115.6 448.5L66.8 540.8C62 549.8 63.5 560.8 70.4 568.3C77.3 575.8 88.2 578.1 97.5 574.1L215.9 523.4C247.7 536.6 282.9 544 320 544zM192 272C209.7 272 224 286.3 224 304C224 321.7 209.7 336 192 336C174.3 336 160 321.7 160 304C160 286.3 174.3 272 192 272zM320 272C337.7 272 352 286.3 352 304C352 321.7 337.7 336 320 336C302.3 336 288 321.7 288 304C288 286.3 302.3 272 320 272zM416 304C416 286.3 430.3 272 448 272C465.7 272 480 286.3 480 304C480 321.7 465.7 336 448 336C430.3 336 416 321.7 416 304z"/></svg>
-                    
+                <div class="items2 item-7" onclick="">
+                    <h2>Social Studies</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 205.3L320 514.6L320.5 514.4C375.1 491.7 433.7 480 492.8 480L512 480L512 160L492.8 160C450.6 160 408.7 168.4 369.7 184.6C352.9 191.6 336.3 198.5 320 205.3zM294.9 125.5L320 136L345.1 125.5C391.9 106 442.1 96 492.8 96L528 96C554.5 96 576 117.5 576 144L576 496C576 522.5 554.5 544 528 544L492.8 544C442.1 544 391.9 554 345.1 573.5L332.3 578.8C324.4 582.1 315.6 582.1 307.7 578.8L294.9 573.5C248.1 554 197.9 544 147.2 544L112 544C85.5 544 64 522.5 64 496L64 144C64 117.5 85.5 96 112 96L147.2 96C197.9 96 248.1 106 294.9 125.5z"/></svg>
+                    <p>Understand laws, right and how societies protect people online. </p>                    
                 </div>
 
-                <div class="items item-8" onclick="">
-                    <h2>SUPPORT</h2>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M320 64C390.7 64 448 121.3 448 192C448 262.7 390.7 320 320 320C249.3 320 192 262.7 192 192C192 121.3 249.3 64 320 64zM40 128C62.1 128 80 145.9 80 168L80 328.2C80 345.2 86.7 361.5 98.7 373.5L149.8 424.6C158.1 432.9 171.1 434.2 180.8 427.7C193.7 419.1 195.5 400.8 184.5 389.9C177.2 382.6 161.4 366.8 137.3 342.7C124.8 330.2 124.8 309.9 137.3 297.4C149.8 284.9 170.1 284.9 182.6 297.4C206.7 321.5 222.5 337.3 229.8 344.6L229.8 344.6L255.1 369.9C276.1 390.9 287.9 419.4 287.9 449.1L287.9 528C287.9 554.5 266.4 576 239.9 576L173.2 576C156.2 576 139.9 569.3 127.9 557.3L28.1 457.4C10.1 439.4 0 415 0 389.5L0 168C0 145.9 17.9 128 40 128zM600 128C622.1 128 640 145.9 640 168L640 389.5C640 415 629.9 439.4 611.9 457.4L512 557.3C500 569.3 483.7 576 466.7 576L400 576C373.5 576 352 554.5 352 528L352 449.1C352 419.4 363.8 390.9 384.8 369.9L410.1 344.6L410.1 344.6C417.4 337.3 433.2 321.5 457.3 297.4C469.8 284.9 490.1 284.9 502.6 297.4C515.1 309.9 515.1 330.2 502.6 342.7C478.5 366.8 462.7 382.6 455.4 389.9C444.4 400.9 446.2 419.1 459.1 427.7C468.8 434.2 481.8 432.9 490.1 424.6L541.2 373.5C553.2 361.5 559.9 345.2 559.9 328.2L560 168C560 145.9 577.9 128 600 128z"/></svg>
-
+                <div class="items2 item-8" onclick="">
+                    <h2>Languages</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M192 64C209.7 64 224 78.3 224 96L224 128L352 128C369.7 128 384 142.3 384 160C384 177.7 369.7 192 352 192L342.4 192L334 215.1C317.6 260.3 292.9 301.6 261.8 337.1C276 345.9 290.8 353.7 306.2 360.6L356.6 383L418.8 243C423.9 231.4 435.4 224 448 224C460.6 224 472.1 231.4 477.2 243L605.2 531C612.4 547.2 605.1 566.1 589 573.2C572.9 580.3 553.9 573.1 546.8 557L526.8 512L369.3 512L349.3 557C342.1 573.2 323.2 580.4 307.1 573.2C291 566 283.7 547.1 290.9 531L330.7 441.5L280.3 419.1C257.3 408.9 235.3 396.7 214.5 382.7C193.2 399.9 169.9 414.9 145 427.4L110.3 444.6C94.5 452.5 75.3 446.1 67.4 430.3C59.5 414.5 65.9 395.3 81.7 387.4L116.2 370.1C132.5 361.9 148 352.4 162.6 341.8C148.8 329.1 135.8 315.4 123.7 300.9L113.6 288.7C102.3 275.1 104.1 254.9 117.7 243.6C131.3 232.3 151.5 234.1 162.8 247.7L173 259.9C184.5 273.8 197.1 286.7 210.4 298.6C237.9 268.2 259.6 232.5 273.9 193.2L274.4 192L64.1 192C46.3 192 32 177.7 32 160C32 142.3 46.3 128 64 128L160 128L160 96C160 78.3 174.3 64 192 64zM448 334.8L397.7 448L498.3 448L448 334.8z"/></svg>
+                    <P>Use words to spread kindness, type positivly and communicate respectfully.2</P>
                 </div>
         </div>
 

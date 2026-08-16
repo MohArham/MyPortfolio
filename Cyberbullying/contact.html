@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Us</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: "cascadia code", monospace;
+                background:  rgb(1, 1, 68);
+                color: white;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: 
+                      "nav nav nav"
+                    "title title title"
+                "details form decoration";
+            }
+
+            .container-nav {
+                grid-area: nav;
+            }
+            
+            .detail-container {
+                grid-area: details;
+                margin: 20px;
+            }
+
+            .Form-box {
+                grid-area: form;
+                margin: 20px;
+            }
+
+            .title-container {
+                text-align: center;
+                grid-area: title;
+            }
+
+
+
+
+            .wrapper {
+                width: 90%;
+                margin: 0 auto;
+                max-width: 2000px;
+            }
+
+            header {
+                background: #054b7a;
+                color: #07f1dd;
+                padding: 15px 5%;
+                text-align: center;
+            }
+
+            header h1 {
+                margin: 0;
+                font-size: 38px;
+                white-space: nowrap;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin: 0;
+                padding: 0;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: white;
+                font-family: "Cascadia Code", monospace;
+                font-weight: bold;
+                transition: color 250ms, transform 250ms;
+                display: inline-block;
+            }
+
+            nav a:hover {
+                color: #6c98f6;
+        
+            }
+
+            .current-page {
+                border-bottom: 2px solid lightblue;
+                padding-bottom: 3px;
+            }
+
+            .open-button,
+            .close-button {
+                display: none;
+            }
+
+            @media (min-width: 706px) { 
+                .open-button, .close-button {
+                    display: none;
+                }
+                header {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                }
+                header h1 {
+                    font-size: 40px;
+                }
+                nav {
+                    position: static;
+                    width: auto;
+                    background: none;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-size: initial;
+                    transform: none;
+                }
+                nav ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+                nav li {
+                    margin: 0 12px 0 0;
+                }
+            }
+
+            @media (max-width: 705px) {
+                header {
+                    padding: 15px 20px;
+                    display: flex;
+                }
+                header h1 {
+                    font-size: 35px;
+                }
+                .open-button {
+                    display: block;
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 28px;
+                    cursor: pointer;
+                    margin-left: auto;
+                }
+                .close-button {
+                    display: block;
+                    position: absolute;
+                    top: 15px;
+                    left: 20px;
+                    background: none;
+                     border: none;
+                    color: lightblue;
+                    font-size: 55px;
+                    cursor: pointer;
+                 }
+
+                nav {
+                     position: fixed;
+                    z-index: 10;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 100%;
+                    width: 100%;
+                    background: #002437;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                   transform: translateX(0);
+                    transition: transform 250ms;
+                }
+                nav.navigation-open {
+                    transform: translateX(-100%);
+                }
+                nav ul {
+                    flex-direction: column;
+                    gap: 35px;
+                }
+                nav li {
+                    margin: 0;
+                }
+                nav a {
+                    font-size: 25px;
+                }
+            }
+
+            .copy-container {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                
+                transition: transform 250ms, color 250ms;
+            }
+            .text-to-copy {
+                margin: 8px;
+            }
+
+            .tooltip-msg {
+                display: none;
+                position: absolute;
+                top: -25px; 
+                left: 50%;
+                transform: translateX(-50%);
+                 background: rgba(0, 0, 0, 0.85);
+                color: #fff;
+                padding: 10px;
+                text-align:center;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                filter: drop-shadow(0 0 5px white);
+            }
+
+            .tooltip-msg.show {
+                display: block;
+            }
+
+            /*Details stuff*/
+            .detail-container {
+                background: 
+                    linear-gradient(
+                        150deg,
+                        rgb(3, 84, 53),
+                        rgb(3, 3, 114)
+                    );
+                padding: 10px;
+                border-radius: 10px;
+                border: #07f1dd 2px solid;
+                box-shadow: 1px 1px 20px rgb(214, 214, 214);
+            }
+
+            .p {
+                margin-top: 0px;
+            }
+
+            .email-title {
+                margin-bottom: 2px;
+                font-size: 15px;
+            }
+
+            .copy-container {
+                margin: 0;
+            }
+            .copy-container:hover {
+                transform: translate(10px,0px);
+                color: lightblue;
+                transition: transform 250ms, color 250ms;
+            }
+
+            h3 {
+                color: rgb(179, 236, 254);
+            }
+
+            .Form {
+                margin-top: 20px;
+            }
+
+            
+
+            form {
+                display: grid;
+                gap: 8px;
+                margin: 0 auto;
+                background: linear-gradient(
+                    150deg,
+                    rgb(3, 84, 53),
+                    rgb(3, 3, 114)
+                );
+                padding: 25px;
+                border-radius: 10px;
+                border: #07f1dd 2px solid;
+                box-shadow: 1px 1px 20px rgb(214, 214, 214);
+                box-sizing: border-box;
+            }
+
+            label {
+                color: rgb(179, 236, 254);
+                font-weight: bold;
+                margin-top: 5px;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                box-sizing: border-box;
+                font-family: inherit;
+                color: white;
+                background: rgb(1, 1, 40);
+                border: 2px solid #054b7a;
+                border-radius: 5px;
+                padding: 10px;
+                transition: border-color 250ms, transform 250ms, box-shadow 250ms;
+            }
+
+            input {
+                height: 40px;
+            }
+
+            textarea {
+                height: 120px;
+                resize: none;
+                height: 200px;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: rgb(170, 170, 170);
+            }
+
+            input:focus,
+            textarea:focus {
+                outline: none;
+                border-color: #07f1dd;
+                box-shadow: 0 0 8px rgba(7, 241, 221, 0.4);
+                transform: scale(1.01);
+            }
+
+            .send-btn {
+                width: 100%;
+                margin-top: 8px;
+                padding: 10px;
+                font-family: inherit;
+                font-size: 15px;
+                font-weight: bold;
+                background: #07f1dd;
+                color: rgb(1, 1, 68);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: transform 250ms, background 250ms, box-shadow 250ms;
+            }
+
+            .send-btn:hover,
+            .send-btn:focus {
+                transform: scale(1.03);
+                background: lightblue;
+                box-shadow: 0 0 12px #07f1dd;
+            }
+        </style >
+    </head>
+    <body>
+        <div class="container2 container-nav">
+            <header>
+                <h1>Game Changers</h1>
+
+                <button aria-label="Open navigation" class="open-button">&#9776;</button>
+
+            <nav class="nav">
+                <button aria-label="Close navigation" class="close-button">&times;</button>
+                <ul>
+                    <li><a href="CyberBullying.html">Home</a></li>
+                    <li><a href="C-and-E.html">Causes & Effects</a></li>
+                    <li><a href="Prevention.html" class="current-page">Prevention</a></li>
+                    <li><a href="SubjectsPerspectives.html">Subjects & perspectives</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            </header>
+        </div>
+
+        <div class="title-container">
+            <h1>WE'RE HERE<br>TO HELP!</h1>
+            <p>Have questions or need support?</p>
+            
+            <p>Reach out to our team.</p>
+
+            </div>
+        
+            <div class="detail-container">
+                <h2>Contact Us</h2>
+                <h3 class="email-title">Email</h3>
+                <p class="p">(Click the emails to copy it)</p>
+                
+                <div class="copy-container" onclick="copyText(this)">
+                    <p class="text-to-copy">Leader: 21ks261451@21kschool.school</p>
+                    <span class="tooltip-msg">Copied!</span>
+                </div>
+                <br>
+
+                <div class="copy-container" onclick="copyText(this)">
+                    <p class="text-to-copy">Co-leader: ....</p>
+                    <span class="tooltip-msg">Copied!</span>
+                </div>
+                <br>
+                <div class="copy-container" onclick="copyText(this)">
+                    <p class="text-to-copy">Project Manager: 21ke25b22321@21kschool.school</p>
+                    <span class="tooltip-msg">Copied!</span>
+                </div>
+                <br>
+                <div class="copy-container" onclick="copyText(this)">
+                    <p class="text-to-copy">Project Manager: ....</p>
+                    <span class="tooltip-msg">Copied!</span>
+                </div>
+                <br>
+                <div class="copy-container" onclick="copyText(this)">
+                    <p class="text-to-copy">Project Manager: ....</p>
+                    <span class="tooltip-msg">Copied!</span>
+                </div>
+
+                <hr>
+
+                <h3>Available</h3>
+                <P>Monday - Friday</P>
+                <P>10:30 AM - 6:30 (Indian time) </P>
+            </div>
+
+            <div class="Form-box">
+                <form action="#" method="POST">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" required placeholder="Name">
+
+                    <label for="Email">Email</label>
+                    <input id="Email" type="text" name="Email" required placeholder="Email">
+                    
+                    <label for="Message">Message</label>
+                    <textarea required type="Message" placeholder="Write your message..."></textarea>
+
+                    <button class="send-btn">Send</button>
+                </form>
+            </div>
+        
+
+        <script>
+            const closeButton = document.querySelector('.close-button');
+            const openButton = document.querySelector('.open-button');
+            const nav = document.querySelector('.nav');
+
+            closeButton.addEventListener('click', () => {
+            nav.classList.remove('navigation-open');
+            });
+
+            openButton.addEventListener("click", () => {
+                nav.classList.add('navigation-open');
+            }); 
+
+            function copyText(container) {
+                const textElement = container.querySelector(".text-to-copy");
+                const statusElement = container.querySelector(".tooltip-msg");
+                const text = textElement.innerText;
+
+                navigator.clipboard.writeText(text);
+                statusElement.classList.add("show");
+
+                setTimeout(() => {
+                    statusElement.classList.remove("show");
+                }, 1500);
+            }
+        </script>
+            
+    </body>
+</html>
