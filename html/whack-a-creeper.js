@@ -1,4 +1,7 @@
 let currentSectionId = "start"
+let time = 31;
+let timeEl = document.querySelector("#timeVal")
+let startBtn = document.querySelector(".start-btn")
 
 function switchScreen(nextSectionId) {
     document.getElementById(currentSectionId).hidden = true
@@ -10,9 +13,13 @@ function switchScreen(nextSectionId) {
     currentSectionId = nextSectionId;
 }   
 
-let time = 32;
+function startTimer() {
+    let timer = setInterval(function(){
+        time--
+        timeEl.textContent = time
 
-setInterval(() => {
-  time = time - 1;
-  document.getElementById('timeVal').textContent = time;
-}, 1000);
+        if (time === 0) {
+            clearInterval(timer)
+        }
+    },1000)
+}

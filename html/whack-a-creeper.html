@@ -22,11 +22,10 @@
             <img class="creeper-face" src="../images/creeper-face.png">
             <h1>Whack <span id="green-a">a</span> <span id="darkcolor-word">creeper</span></h1>
             <h3>Click the creepers before they hide!</h3>
-            <button class="start-btn" onclick="switchScreen('game'); startGame()">Start!</button>
+            <button onclick="switchScreen('game'); startTimer()" class="start-btn">Start!</button>
         </section>
 
         <section id="game" class="screen" hidden>
-
             <div class="scoreANDtime">
                 <p class="SCORE">🏆Score:<span id="score"></span></p>
                 <p class="TIME">⏱️ Time: <span id="timeVal"></span></p>
