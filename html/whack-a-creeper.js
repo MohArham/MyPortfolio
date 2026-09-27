@@ -2,6 +2,10 @@ let currentSectionId = "start"
 let time = 31;
 let timeEl = document.querySelector("#timeVal")
 let startBtn = document.querySelector(".start-btn")
+let creeper = document.createElement("img")
+creeper.src = "../images/creeper-face.png"
+let blocks = document.querySelectorAll(".block")
+let randomBlock = blocks[Math.floor(Math.random()*9)]
 
 function switchScreen(nextSectionId) {
     document.getElementById(currentSectionId).hidden = true
