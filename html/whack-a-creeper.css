@@ -96,15 +96,29 @@ section {
     justify-content: center;
 
 }
-.block {
-    width: 130px;
-    align-self: center;
-    transition: filter 250ms;
-}
 
 .block:active {
     filter: brightness(70%);
+}
 
+.block {
+    width: 130px;
+    height: 130px;
+    position: relative;
+}
+
+.block-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.creeper {
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    left: 13px;
 }
 /*score and time*/
 
@@ -138,10 +152,18 @@ section {
     }
     .block {
         width: 100px;
+        height: 100px;
     }
     
     .SCORE, .TIME {
         font-size: 30px;
+    }
+    .creeper {
+        width: 75px;
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        left: 11px;
     }
 }
 
