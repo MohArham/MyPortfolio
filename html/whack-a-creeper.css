@@ -6,8 +6,12 @@ body {
     padding: 0;
     margin: 0;
     overflow: auto;
-    
     margin: 50px;
+}
+
+#end {
+    font-family: Pixelify Sans;
+    background: grey;
 }
 
 .creeper-face{
@@ -105,6 +109,8 @@ section {
     width: 130px;
     height: 130px;
     position: relative;
+    overflow: visible;
+    clip-path: inset(-100px 0 0 0);
 }
 
 .block-img {
@@ -117,14 +123,23 @@ section {
     width: 100px;
     position: absolute;
     z-index: 1;
-    top: -20px;
+    top: 115px;
     left: 13px;
+    transition: top 220ms ease;
+}
+
+.block.up .creeper {
+    top: -20px;
 }
 /*score and time*/
 
 .scoreANDtime {
     display: flex;
 }
+#score, #timeVal {
+    font-family: 'Lucida Sans';
+}
+
 
 .TIME {
     margin-left: auto;
@@ -162,7 +177,7 @@ section {
         width: 75px;
         position: absolute;
         z-index: 1;
-        top: -10px;
+        top: 100px;
         left: 11px;
     }
 }
@@ -173,8 +188,5 @@ section {
     }
 }
 
-#timeVal {
-    font-family: 'Lucida Sans';
-}
 
 
