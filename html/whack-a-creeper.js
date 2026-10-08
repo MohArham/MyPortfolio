@@ -1,9 +1,10 @@
 let currentSectionId = "start"
-let time = 3;
+let time = 31;
 let timeEl = document.querySelector("#timeVal")
 let startBtn = document.querySelector(".start-btn")
 let score = 1
 let scoreEl = document.querySelector("#score")
+let endScore = document.querySelector(".end-score")
 
 let creeper = document.createElement("img")
 creeper.src = "../images/creeper-face.png"
@@ -47,6 +48,7 @@ function startTimer() {
             clearInterval(timer)
             clearInterval(creeperTime)
             switchScreen('end')
+            endScore.textContent = score
         }
     },1000)
 
