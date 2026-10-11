@@ -9,11 +9,9 @@ body {
     margin: 50px;
 }
 
-#end {
-    font-family: Pixelify Sans;
-    background: grey;
+section[hidden] {
+    display: none !important;
 }
-
 .creeper-face{
     margin-top: 100px;
 }
@@ -123,7 +121,7 @@ section {
     width: 100px;
     position: absolute;
     z-index: 1;
-    top: 115px;
+    top: 130px;
     left: 13px;
     transition: top 220ms ease;
 }
@@ -137,7 +135,7 @@ section {
     display: flex;
 }
 #score, #timeVal {
-    font-family: 'Lucida Sans';
+    font-family:  Oxanium;
 }
 
 
@@ -188,5 +186,30 @@ section {
     }
 }
 
+/*=================
+    SCREEN 3
+================*/
+#end {
+    font-family: "Pixelify Sans";
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
+.End-h1 {
+    font-style: bold;
+    text-shadow: 3px 5px black;
+    font-size: 60px;
+    
+}
+.end-line {
+    font-family: cascadia code;
+    margin-top: 10px;
+}
 
+.img2 {
+    width: 100px;
+}

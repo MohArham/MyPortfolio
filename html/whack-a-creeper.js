@@ -1,10 +1,11 @@
 let currentSectionId = "start"
-let time = 31;
+let time = 3;
 let timeEl = document.querySelector("#timeVal")
 let startBtn = document.querySelector(".start-btn")
 let score = 1
 let scoreEl = document.querySelector("#score")
 let endScore = document.querySelector(".end-score")
+let restartBtn = document.querySelector(".restart")
 
 let creeper = document.createElement("img")
 creeper.src = "../images/creeper-face.png"
@@ -56,11 +57,3 @@ function startTimer() {
                         spawnCreeper()
                     },1200)
 }
-
-
-
-
-
-
-
-
