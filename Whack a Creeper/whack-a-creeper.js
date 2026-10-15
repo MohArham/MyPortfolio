@@ -1,5 +1,5 @@
 let currentSectionId = "start";
-let time = 3;
+let time = 31;
 let timeEl = document.querySelector("#timeVal");
 let scoreEl = document.querySelector("#score");
 let endScore = document.querySelector(".end-score");
@@ -10,7 +10,7 @@ let spawnTimeout;
 let hideTimeout;
 
 let creeper = document.createElement("img");
-creeper.src = "../images/creeper-face.png";
+creeper.src = "creeper-face.png";
 creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
