@@ -16,9 +16,9 @@ section[hidden] {
     margin-top: 100px;
 }
 
-/*==========
-   Screen 1
-===========*/
+/*===============
+   Start screen
+================*/
 h1 {
     color: rgb(17, 231, 17);
 }
@@ -75,10 +75,104 @@ h1 {
         font-size: 50px;
     }
 }
+/*=======================================
+    Touchscreen/no touchscreen screen 
+=======================================*/
+.touchscreen-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16%;
+}
+.touchscreen-btn {
+    transition: all 250ms;
+    font-family: Oxanium;
+    background: radial-gradient(rgb(191, 255, 191),lightgreen );
+    border: green 5px double;
+    border-radius: 5px;
+    color: black;
+    width: 70%;
 
-/*==============
-    screen 2 
-=============*/
+}
+.touchscreen-btn p {
+    color: rgb(11, 138, 40);
+    font-size: 15px;
+}
+.touchscreen-btn h3 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.touchscreen-btn svg{
+    width: 60px;
+    margin-bottom: 0px;
+    transform: translate(0px,25px);
+    color: rgb(0, 255, 0);
+}
+.touchscreen-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 50px green;
+}
+
+
+
+.no-touchscreen-btn {
+    transition: all 250ms;
+    font-family: Oxanium;
+    background: radial-gradient(rgb(170, 233, 254),rgb(165, 253, 255));
+    border: rgb(17, 194, 197) 5px double;
+    border-radius: 5px;
+    color: black;
+    width: 70%;
+
+}
+.no-touchscreen-btn p {
+    color: rgb(23, 137, 155);
+    font-size: 15px;
+}
+.no-touchscreen-btn h3 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.no-touchscreen-btn svg{
+    width: 60px;
+    margin-bottom: 0px;
+    transform: translate(0px,25px);
+    color: rgb(0, 255, 0);
+}
+.no-touchscreen-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 50px rgb(63, 191, 230);
+}
+/*=================
+    difficulty screen 
+================*/
+.difficulty-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+.btn {
+    font-family: Oxanium;
+}
+.btn h2 {
+    font-size: 30px;
+    text-shadow: 0px 2px  black
+}
+.easy-btn h2 {
+    color: rgb(33, 187, 33);
+}
+.medium-btn h2 {
+    color: rgb(172, 187, 33);
+}
+.hard-btn h2 {
+    color: rgb(187, 33, 33);
+}
+
+
+/*=================
+    game screen 
+================*/
 
 section {
      margin: 20px;
@@ -187,7 +281,7 @@ section {
 }
 
 /*=================
-    SCREEN 3
+    end screen 
 ================*/
 #end {
     font-family: "Pixelify Sans";

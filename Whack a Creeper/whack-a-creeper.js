@@ -98,3 +98,5 @@ function resetGame() {
 scoreEl.textContent = score;
 timeEl.textContent = time;
 endScore.textContent = "🏆 " + score;
+
+
