@@ -1,4 +1,6 @@
 let currentSectionId = "start";
+let difficulty = "easy";
+let spawnSpeed = 1200
 let time = 31;
 let timeEl = document.querySelector("#timeVal");
 let scoreEl = document.querySelector("#score");
@@ -20,6 +22,20 @@ function switchScreen(nextSectionId) {
     document.getElementById(nextSectionId).hidden = false;
     currentSectionId = nextSectionId;
 }
+
+//Change the difficulty
+function changeDifficulty(changedDifficulty) {
+    difficulty = changedDifficulty
+    if (difficulty === "Medium") {
+        spawnSpeed = 600
+    } else if (difficulty === "Hard"){
+        spawnSpeed = 450
+        time = 21
+    } else {
+        spawnSpeed = 1200
+    }
+}
+    
 
 // Spawn a creeper
 function spawnCreeper() {
@@ -69,7 +85,7 @@ function startTimer() {
 
     creeperTime = setInterval(function() {
         spawnCreeper();
-    }, 1200);
+    }, spawnSpeed);
 }
 
 // Restart the game
@@ -99,4 +115,4 @@ scoreEl.textContent = score;
 timeEl.textContent = time;
 endScore.textContent = "🏆 " + score;
 
-
+// Add sound (for later)
