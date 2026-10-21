@@ -27,9 +27,9 @@ function switchScreen(nextSectionId) {
 function changeDifficulty(changedDifficulty) {
     difficulty = changedDifficulty
     if (difficulty === "Medium") {
-        spawnSpeed = 600
+        spawnSpeed = 850
     } else if (difficulty === "Hard"){
-        spawnSpeed = 450
+        spawnSpeed = 580
         time = 21
     } else {
         spawnSpeed = 1200
@@ -106,7 +106,7 @@ function resetGame() {
     blocks.forEach(function(block) {
         block.classList.remove("up");
     });
-    switchScreen("game");
+    switchScreen("input-method");
     startTimer();
 }
 
