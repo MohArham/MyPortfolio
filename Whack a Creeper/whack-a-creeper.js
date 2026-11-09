@@ -25,6 +25,25 @@ creeper.src = "creeper-face.png";
 creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
+let highScoreELs = document.querySelectorAll(".HS-number");
+
+highScoreELs.forEach(function(el) {
+    el.textContent = 5;
+});
+
+let HSOptions = document.querySelectorAll(".HS-option");
+
+HSOptions.forEach(function(option) {
+    option.addEventListener("click", function() {
+        let chosenDifficulty = option.textContent.toLowerCase();
+
+        document.querySelectorAll(".HS-container").forEach(function(HS) {
+            HS.classList.remove("medium", "hard");
+            HS.classList.add(chosenDifficulty);
+        });
+    });
+});
+
 // Switch screens
 function switchScreen(nextSectionId) {
     document.getElementById(currentSectionId).hidden = true;
