@@ -26,7 +26,6 @@ creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
 let highScoreELs = document.querySelectorAll(".HS-number");
-
 highScoreELs.forEach(function(el) {
     el.textContent = 5;
 });
