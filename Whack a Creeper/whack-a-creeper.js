@@ -25,19 +25,28 @@ creeper.src = "creeper-face.png";
 creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
+// High score code 
 let highScoreELs = document.querySelectorAll(".HS-number");
-highScoreELs.forEach(function(el) {
-    el.textContent = 5;
-});
-
+let displayedHighScoreDifficulty = "easy";
 let HSOptions = document.querySelectorAll(".HS-option");
+
+let highScores = {
+    easy: Number(localStorage.getItem("easyHighScore")) || 0,
+    medium: Number(localStorage.getItem("mediumHighScore")) || 0,
+    hard: Number(localStorage.getItem("hardHighScore")) || 0
+}
 
 HSOptions.forEach(function(option) {
     option.addEventListener("click", function() {
         let chosenDifficulty = option.textContent.toLowerCase();
+        displayedHighScoreDifficulty = chosenDifficulty;
 
-        document.querySelectorAll(".HS-container").forEach(function(HS) {
-            HS.classList.remove("medium", "hard");
+        highScoreELs.forEach(function(el) {
+            el.textContent = highScores[displayedHighScoreDifficulty];
+        });
+
+        document.querySelectorAll(".HS-container, .HS-container-2").forEach(function(HS) {
+            HS.classList.remove("easy", "medium", "hard");
             HS.classList.add(chosenDifficulty);
         });
     });
@@ -52,16 +61,17 @@ function switchScreen(nextSectionId) {
 
 //Change the difficulty
 function changeDifficulty(changedDifficulty) {
-    difficulty = changedDifficulty
-    if (difficulty === "Medium") {
-        spawnSpeed = 680
-        time = 31
-    } else if (difficulty === "Hard"){
-        spawnSpeed = 580
-        time = 21
+    difficulty = changedDifficulty.toLowerCase();
+
+    if (difficulty === "medium") {
+        spawnSpeed = 680;
+        time = 31;
+    } else if (difficulty === "hard") {
+        spawnSpeed = 580;
+        time = 21;
     } else {
-        spawnSpeed = 1200
-        time = 31
+        spawnSpeed = 1200;
+        time = 31;
     }
 }
     
@@ -108,6 +118,19 @@ function startTimer() {
         timeEl.textContent = time;
 
         if (time <= 0) {
+            displayedHighScoreDifficulty = difficulty;
+            if (score > highScores[difficulty]) {
+                highScores[difficulty] = score;
+                localStorage.setItem(difficulty + "HighScore", score);
+                highScoreELs.forEach(function(el) {
+                    el.textContent = highScores[displayedHighScoreDifficulty];
+                });
+            }
+            document.querySelectorAll(".HS-container, .HS-container-2").forEach(function(HS) {
+                HS.classList.remove("easy", "medium", "hard");
+                HS.classList.add(displayedHighScoreDifficulty);
+            });
+
             clearInterval(timer);
             clearInterval(creeperTime);
             clearTimeout(spawnTimeout);
@@ -165,3 +188,6 @@ function resetGame() {
 scoreEl.textContent = score;
 timeEl.textContent = time;
 endScore.textContent = "🏆 " + score;
+highScoreELs.forEach(function(el) {
+    el.textContent = highScores[displayedHighScoreDifficulty];
+});
