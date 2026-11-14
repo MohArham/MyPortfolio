@@ -161,7 +161,13 @@ nav {
 /*///////////////////////
     PROJECT ITEMS 
 //////////////////////*/
-.calc-img {
+
+
+.project {
+    border-bottom: black 5px solid;
+    padding-bottom: 30px;
+}
+.img {
     margin: 0 auto;
     padding: 0;
     border-radius: 7px;
@@ -171,13 +177,13 @@ nav {
     width: 250px;
 }
 
-.calc-img:hover {
+.img:hover {
     transition: transform 300ms, box-shadow 300ms;
     transform: scale(1.05);
     box-shadow: 5px 5px 20px;
 }
 
-.calc-link {
+.link {
         background-color: #0ea5e9;
         padding: 10px;
         border-radius: 10px;
@@ -186,7 +192,7 @@ nav {
         text-decoration: none;
         white-space: nowrap;
     }
-    .calc-link:hover {
+    .link:hover {
         text-decoration: underline;
         
     }
@@ -232,29 +238,24 @@ nav {
     border-radius: 10px;
 }
 
-.html-progress {
-    width: 25%;
+.progress {
     height: 100%;
-    background-color: #ef6b47;
     border-radius: 10px;
 }
+.html {background-color: #ef6b47;}
+.css {background-color: #2783c5;}
+.js {background-color: #cfb804;}
 
-.css-progress {
-    width: 35%;
-    height: 100%;
-    background-color: #2783c5;
-    border-radius: 10px;
+.Game-changers-img{
+    object-position: left;
+        transition: object-position 0.5s ease-in-out;
+
 }
-
-.js-progress {
-    width: 45%;
-    height: 100%;
-    background-color: #cfb804;
-    border-radius: 10px;
+.Game-changers-img:hover {
+    object-position: right;
 }
-
 @media (min-width: 700px) { 
-    .calc-project {
+    .project {
         display: grid;
         grid-template-columns: max-content 1fr;
         gap: 10px;
@@ -263,14 +264,27 @@ nav {
     .text-progress-div {
         transform: translate(0px , 54px);
     }
-    .calc-img:hover {
+    .img:hover {
         transition: transform 300ms;
         transform: scale(1.05);
         box-shadow: 0px 0px 0px;
     }
-    .calc-img {
+    .img {
         height: 400px;
         object-fit:cover;
     }
     
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(0, 113, 139);
+    color: white;
+    margin-top: 20px;
+}
+
+.more-info {
+    margin-left: 5%;
+    margin-top: 10px;
 }
